@@ -73,7 +73,7 @@ class Model
     {
         $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
 
-        return $this->query($sql, [$id], 'i')->first();
+        return $this->query($sql)->first();
     }
 
     public function where($column, $operator, $value = null)
@@ -109,13 +109,9 @@ class Model
 
         $values = array_values($data);
 
-        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?,', count($data) - 1) . "?)";
+        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?, ', count($data) - 1) . "?)";
 
-        $this->query($sql);
-
-        $insert_id = $this->connection->insert_id;
-
-        return $this->find($insert_id);
+        $this->query($sql, $values);
     }
 
     public function update($id, $data)

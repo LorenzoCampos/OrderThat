@@ -21,7 +21,7 @@ class Controller
             return $content;
 
         } else {
-            return "El archivo no exite";
+            return "El archivo no existe";
         }
     }
 }

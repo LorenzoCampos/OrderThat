@@ -5,31 +5,34 @@ use App\Models\Product;
 
 class HomeController extends Controller
 {
-    public function modify($id)
+    public function index()
     {
+        $products = new Product();
 
-        $contactModel = new Product();
-        $product = $contactModel->where('id', "$id")->first();
-        // $product = $contactModel->find($id);
+        $request = $products->find(1);
 
-        // return $contactModel->where('product_name', 'LIKE', "%coca%")->orderBy('product_price')->get();
+        return $this->view('home', compact('request'));
+    }
 
-        // return $contactModel->update(17, [
-        //     'image_path' => 'aaaaa path',
-        //     'product_code' => '9999',
-        //     'product_name' => 'soy nombre',
-        //     'product_desc' => 'hola como estas',
-        //     'fk_rubro' => '2',
-        //     'fk_category' => '3',
-        //     'product_price' => 10001,
-        //     'product_stock' => 10001
-        // ]);
+    public function create()
+    {
+        $createProduct = new Product();
 
-        // $contactModel->delete(17);
-        // return $product;
+        return $createProduct->create([
+            'image_path' => '..\resources\static\img\image1.png',
+            'description' => 'Big Mac',
+            'price' => '6500',
+            'stock' => '158'
+        ]);
+    }
 
-        return $this->view('home', compact('product'));
+    public function test()
+    {
+        $products = new Product();
 
+        $request = $products->find(2);
+
+        return $this->view('test', compact('request'));
     }
 
 }

@@ -1,0 +1,1 @@
+<?= $request["image_path"] ?>

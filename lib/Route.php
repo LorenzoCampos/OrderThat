@@ -26,11 +26,11 @@ class Route
         $method = $_SERVER['REQUEST_METHOD'];
 
         foreach(self::$routes[$method] as $route => $callback) {
-
+            
             if (strpos($route, ':') !== false) {
                 $route = preg_replace('#:[a-zA-Z]+#', '([a-zA-Z0-9]+)', $route);
             }
-            
+            // sadfsdfsdfsdfsdfsdfsdfsdfddsfsdfd
             if (preg_match("#^$route$#", $uri, $matches)) {
 
                 $params = array_slice($matches, 1);
