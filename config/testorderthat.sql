@@ -35,7 +35,7 @@ CREATE TABLE products (
 );
 
 CREATE TABLE orders_details (
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     fk_product INT NOT NULL,
     fk_order INT NOT NULL,
     amount INT NOT NULL,

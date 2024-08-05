@@ -5,9 +5,11 @@ require_once '../autoload.php';
 use Lib\Route;
 use App\Controllers\HomeController;
 
-Route::get('PHP_LOLO/OrderThat/public/', [HomeController::class,'index']);
-Route::get('PHP_LOLO/OrderThat/public/create', [HomeController::class,'create']);
-Route::get('PHP_LOLO/OrderThat/public/test', [HomeController::class,'test']);
+Route::get('/', [HomeController::class,'index']);
+Route::get('/indexTest', [HomeController::class,'indexTest']);
+Route::get('/test', [HomeController::class,'test']);
+Route::get('/createProduct', [HomeController::class,'createProduct']);
+Route::post('/createProductRequest', [HomeController::class,'createProductRequest']);
 // Route::get('/login', [HomeController::class,'index']);
 // Route::get('/register', [HomeController::class,'index']);
 
@@ -21,7 +23,7 @@ Route::get('PHP_LOLO/OrderThat/public/test', [HomeController::class,'test']);
 //     return 'HOLA DESDE LA PAGINA CONTACT';
 // });
 
-// Route::get('PHP_LOLO/OrderThat/public/', function (){
+// Route::get('/', function (){
 //     return 'HOLA DESDE LA PAGINA ABOUT';
 // });
 
