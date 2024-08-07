@@ -1,37 +1,46 @@
-header{
-  overflow: hidden;
+/* -------------------------------- Header --------------------------------------- */
+
+.header-container{
+  display: flex;
+  
   width: 100%;
-  height: 80px;
+  height: 70px;
+
   background-color: var(--background-list);
 
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-#header-container{
+.logo-container{
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  align-items: center;
+  margin-left: 1%;
 }
 
-nav a{
-  float: right;
-  color: white;
-  margin-top: 25px;
-  margin-right: 5%;
-  font-style: none;
+.logo{
+  box-shadow: none;
+}
+
+.button-login-container{
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.button-login{
+  text-decoration: none;
+  color: var(--text);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+  background-color: var(--button-default);
 
   padding: 5px;
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-  text-decoration: none;
+  border-radius: 5px;
+
+  cursor: pointer;
 }
 
-nav img{
-  width: 100px;
-  margin-top: 20px;
-  margin-left: 5%;
-  float:left;
-}
+/* -------------------------------- Login / Register --------------------------------------- */
 
 body{
   display: flex;
@@ -42,31 +51,43 @@ body{
 }
 
 h1{
+  font-family: "Permanent Marker", cursive;
+  font-weight: bold;
+  font-style: normal;
+
+  display: flex;
+  justify-content: center;
+
   color: var(--text);
-  margin-top: 100px;
   
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-img{
-  border-radius: 10px;
+.form-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: max-content;
+  margin-top: 24px;
+  padding: 24px;
+  gap: 16px;
+
+  border-radius: 8px;
+  background-color: var(--background-list);
+
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 form{
-  display: grid;
-  grid-template-columns: repeat(1, fr);
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
   max-width: max-content;
-  margin-top: 10px;
-  padding: 18px;
-  gap: 15px;
+  gap: 16px;
 
-  border-radius: 15px;
-  background-color: var(--background-list);
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
 }
 
 form input{
@@ -80,9 +101,11 @@ form input{
   background-color: var(--button-default);
 
   font-family: "Permanent Marker", cursive;
-  font-weight: bold;
+  font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: 16px;
+
+  cursor: pointer;
 }
 
 form input::placeholder {
@@ -100,9 +123,13 @@ form input::placeholder {
   border-radius: 10px;
 
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+  cursor: pointer;
 }
 
 h3{
-  display: flex;
-  justify-content: center;
+  font-family: "Permanent Marker", cursive;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 16px;
 }
