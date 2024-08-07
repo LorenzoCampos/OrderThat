@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 use App\Models\User;
+use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -22,12 +23,34 @@ class UserController extends Controller
 
         if ($validation)
         {
+            $products = new Product();
+
+            $request = $products->all();
+
             session_start();
-            $_SESSION['email'] = $validation['email'];
-            return $this->view('myAccount', compact("validation"));
+
+            $_SESSION['id'] = $validation['id'];
+
+            return $this->view('home', compact('request'));
         }
 
         return $this->view('/');
+    }
+
+    public function logout()
+    {
+
+        if (session_status() !== PHP_SESSION_ACTIVE) {
+            session_start();
+        }
+
+        // destruye todo lo que tenga que ver con la sesion o todas sus variables al establecer $_SESSION como un array vacio
+        $_SESSION = array();
+
+        session_destroy();
+
+        header("Location: ../");
+
     }
 
     public function register()
@@ -44,20 +67,47 @@ class UserController extends Controller
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $validation = $user->where('email', "$email")->where('password', "$password")->get();
-        if ($validation)
+        $data_user['email'] = $email;
+        $data_user['password'] = $password;
+
+        $validation_email = $user->where('email', "$email")->first();
+
+        if ($validation_email)
         {
-            return $this->view('');
+            $_SESSION['error_message'] = "El email ya existe";
+
+            return $this->view('register', [
+                'email' => $email,
+                'password' => $password
+            ]);
         }
         else
         {
-            $user->create($request);
 
-            session_start();
-            $_SESSION['email'] = $email;
+            $user_create = $user->create($request);
+
+            if ($user_create['id'])
+            {
+                return $this->view('login');
+            }
+            else
+            {
+                $_SESSION['error_message'] = "Error al crear registro";
+            }
         }
 
-        return $this->view('myAccount');
+        
+    }
+
+    public function myAccount()
+    {
+        $id = $_SESSION['id'];
+
+        $user = new User();
+
+        $validation = $user->where('id', "$id")->first();
+
+        return $this->view('myAccount', compact("validation"));
     }
 
 }

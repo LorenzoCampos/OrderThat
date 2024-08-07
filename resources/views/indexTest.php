@@ -1,5 +1,5 @@
-
-    <link rel="stylesheet" href="../resources/static/css/home.css">
+  <link rel="stylesheet" href="../resources/static/css/main.css">
+  <link rel="stylesheet" href="../resources/static/css/home.css">
 </head>
 
 <header>
@@ -7,8 +7,9 @@
 </header>
 
 <body>
-    <h1>Products</h1>
+  <br>
+  <p>Test sesion-close</p>
 
-    <img src="<?= $request['image_path'] ?>" width="300">
+  
 </body>
 </html>
