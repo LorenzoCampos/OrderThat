@@ -7,11 +7,18 @@ use App\Controllers\HomeController;
 use App\Controllers\UserController;
 
 Route::get('/OrderThat/public/', [HomeController::class,'index']);
-Route::get('/OrderThat/public/indexTest', [HomeController::class,'indexTest']);
+
+Route::get('/OrderThat/public/indexTest:id', [HomeController::class,'indexTest']);
+Route::get('/OrderThat/public/orderTest', [HomeController::class, 'orderTest']);
 Route::get('/OrderThat/public/test', [HomeController::class,'test']);
+
 Route::get('/OrderThat/public/createProduct', [HomeController::class,'createProduct']);
 Route::post('/OrderThat/public/createProductRequest', [HomeController::class,'createProductRequest']);
 
+Route::get('/OrderThat/public/editProduct/:id', [HomeController::class,'editProduct']);
+Route::post('/OrderThat/public/editProductRequest/:id', [HomeController::class,'editProductRequest']);
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Route::get('/OrderThat/public/login', [UserController::class,'login']);
 Route::post('/OrderThat/public/loginRequest', [UserController::class,'loginRequest']);

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+<header>
+    <nav>
+        <div id="header-container">
+            <a href="../public"><img src="" alt="logo"></a>
+            <form action="" id="input-header">
+                <input class="search-bar" type="text" name="" id="" placeholder="Busqueda">
+            </form>
+            <a href="../public/login">Iniciar Sesión</a>
+        </div>
+    </nav>
+</header>

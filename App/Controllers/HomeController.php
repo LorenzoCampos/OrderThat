@@ -7,16 +7,25 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return $this->view('home');
+        $products = new Product();
+
+        $request = $products->all();
+
+        return $this->view('home', compact('request'));
     }
 
-    public function indexTest()
+    public function indexTest($id)
     {
         $products = new Product();
 
-        $request = $products->find(1);
+        $request = $products->find($id);
 
         return $this->view('indexTest', compact('request'));
+    }
+
+    public function orderTest() //Prueba para test de orden compra
+    {
+        return $this->view('orderTest');
     }
 
     public function createProduct()
@@ -41,29 +50,43 @@ class HomeController extends Controller
 
         move_uploaded_file($p_archive, $image_path);
 
-        $description = $request['description'];
+        $request['image_path'] = $image_path_db;
 
-        $price = $request['price'];
-
-        $stock = $request['stock'];
-
-        $createProduct->create([
-            'image_path' => "$image_path_db",
-            'description' => "$description",
-            'price' => "$price",
-            'stock' => "$stock",
-        ]);
+        $createProduct->create($request);
 
         return header("Location: ../public/");
     }
 
-    public function test()
-    {
+    public function editProduct($id){
+
         $products = new Product();
 
-        $request = $products->find(1);
+        $request = $products->find($id);
 
-        return $this->view('test', compact('request'));
+        return $this->view('editProduct', compact('request'));
     }
 
+    public function editProductRequest($id){
+        
+        $products = new Product();
+
+        $request = $_POST;
+
+        $p_archive_name = $_FILES['image']['name'];
+        $p_archive = $_FILES['image']['tmp_name'];
+
+		// este es el path donde guarda la imagen
+		$image_path = "../resources/static/img/$p_archive_name";
+        
+		// este es el path donde la base de datos va a buscar la imagen
+		$image_path_db = "../resources/static/img/$p_archive_name";
+
+        $request['image_path'] = $image_path_db;
+
+        move_uploaded_file($p_archive, $image_path);
+
+        $products->update("$id", $request);
+
+        return header("Location: ../");
+    }
 }

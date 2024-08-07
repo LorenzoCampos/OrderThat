@@ -32,7 +32,7 @@
     </div>
 
     <div class='form-modify_submit'>
-        <button type='submit' name='submit'>Crear Producto</button>
+        <button type='submit'>Crear Producto</button>
     </div>
 
 </form>

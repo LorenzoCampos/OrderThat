@@ -22,14 +22,31 @@
 
 <body>   
     <h1>CARTA</h1>
-    
+
     <div class="menu-container">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
-        <img src="https://images.rappi.com.mx/restaurants_background/hamburguesas02-1679958895637.jpg" width="300px">
+
+    <?php
+
+    foreach ($request as $key => $value)
+    {
+        ?>
+
+        <div>
+
+            <img src="<?= $value['image_path'] ?>" width="200px">
+
+            <h2><?= $value['description'] ?></h2>
+            <h2><?= $value['price'] ?></h2>
+
+            <a href="../public/editProduct/<?= $value['id'] ?>">Editar</a>
+
+        </div>
+
+        <?php
+    }
+
+    ?>
     </div>
+    
 </body>
 </html>

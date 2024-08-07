@@ -6,9 +6,9 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Te logeaste puto</h1>
-        <p><?= $validation["email"] ?></p>
-        <p></p>
-        
+    <h1>HELLO WORLD</h1>
+
+    
+
 </body>
 </html>
