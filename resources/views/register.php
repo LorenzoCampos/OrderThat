@@ -8,25 +8,41 @@
   <link rel="stylesheet" href="../resources/static/css/login.css">
 </head>
 
-<header>
-  <nav>
-      <div id="header-container">
-        <img src="." alt="logo">
-      </div>
-  </nav>
-</header>
+<div class="header-container">
+  <div class="logo-container">
+    <a href="../public"><img class="logo" src="../resources/static/img/Logo/rub-white.png" alt="logo" width="50px"></a>
+  </div>    
+</div>
 
 <body>
-
-  <h1>Registrarse</h1>
+  <div class="form-container">
 
     <form action="../public/registerRequest" method="post">
-      <input type="text" name="email" placeholder="Email...">
-      <input type="password" name="password" placeholder="Contraseña...">
+      <h1>Registrarse</h1>
 
+      <input type="mail" name="email" placeholder="Email..."
+      
+      value="<?php
+      if (isset($email)) { echo $email; }
+      ?>" required>
+      
+      <?php
+      if (isset($_SESSION['error_message']))
+      {
+        $errorMessage = $_SESSION['error_message'];
+        echo "<h3>$errorMessage!</h3>";
+        unset($_SESSION['error_message']);
+      }
+      ?>
+      
+      <input type="password" name="password" placeholder="Contraseña..." value="" required>
       <input type="submit" value="Registrarse">
-      <a class="button-register" href="../public/login"><h3>Iniciar Sesión</h3></a>
     </form>
-  
+    <!-- $data_user -->
+    <h3>¿Ya tienes cuenta?</h3>
+      <a href="../public/login"><button class="button-register"><h3>Iniciar Sesión</h3></button></a>
+
+  </div>
+
 </body>
 </html>

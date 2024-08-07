@@ -8,24 +8,27 @@
   <link rel="stylesheet" href="../resources/static/css/login.css">
 </head>
 
-<header>
-  <nav>
-      <div id="header-container">
-        <img src="." alt="logo">
-      </div>
-  </nav>
-</header>
+<div class="header-container">
+  <div class="logo-container">
+    <a href="../public"><img class="logo" src="../resources/static/img/Logo/rub-white.png" alt="logo" width="50px"></a>
+  </div>    
+</div>
 
 <body>
-
-  <h1>Iniciar Sesión</h1>
+  <div class="form-container">
 
     <form action="../public/loginRequest" method="post">
-      <input type="text" name="email" placeholder="Email..." required>
+      <h1>Iniciar Sesión</h1>
+
+      <input type="mail" name="email" placeholder="Email..." required>
       <input type="password" name="password" placeholder="Contraseña..." required>
       <input type="submit" value="Iniciar Sesión">
-      <a class="button-register" href="../public/register"><h3>Registrarse</h3></a>
     </form>
-  
+
+      <h3>¿No tienes cuenta?</h3>
+      <a href="../public/register"><button class="button-register"><h3>Registrarse</h3></button></a>
+
+  </div>
+
 </body>
 </html>
