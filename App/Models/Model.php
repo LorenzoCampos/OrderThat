@@ -4,18 +4,21 @@ namespace App\Models;
 
 use mysqli;
 
-class Model
-{
-
+class Model{
     protected $db_host = DB_HOST;
     protected $db_user = DB_USER;
     protected $db_pass = DB_PASS;
     protected $db_name = DB_NAME;
+
     protected $connection;
+
     protected $query;
+
+    protected $select = '*';
+    protected $where, $values = [];
+    protected $orderBy;
+
     protected $table;
-    protected $sql;
-    protected $querySaved;
 
     public function __construct()
     {
@@ -26,111 +29,213 @@ class Model
     {
         $this->connection = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
 
-        if ($this->connection->connect_error){
-            die('Error de conexion'. $this->connection->connect_error);
+        if ($this->connection->connect_errno) {
+            die('Error de conexión: ' . $this->connection->connect_error);
         }
+
     }
 
-    public function query($sql, $data = [], $params = null)
-    {
+    public function query($sql, $data = [], $params = null){
 
-        if ($data){
+        if ($data) {
 
-            if ($params ==null){
-
+            if ($params == null) {
                 $params = str_repeat('s', count($data));
             }
 
-            $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param($params, ...$data);
-            $stmt->execute();
+            $smtp = $this->connection->prepare($sql);
+            $smtp->bind_param($params, ...$data);
+            $smtp->execute();
 
-            $this->query = $stmt->get_result();
-        } else {
+            $this->query = $smtp->get_result();
+
+        }else{
+
             $this->query = $this->connection->query($sql);
+
         }
 
         return $this;
     }
-    public function first()
-    {
-        return $this->query->fetch_assoc();
+
+    public function select(...$columns){
+        $this->select = implode(', ', $columns);
+        return $this;
     }
 
-    public function get()
-    {
-        return $this->query->fetch_all(MYSQLI_ASSOC);
-    }
-
-    public function all()
-    {
-        $sql = "SELECT * FROM {$this->table}";
-
-        $this->query($sql)->get();
-    }
-
-    public function find($id)
-    {
-        $sql = "SELECT * FROM {$this->table} WHERE id = {$id}";
-
-        return $this->query($sql)->first();
-    }
-
-    public function where($column, $operator, $value = null)
-    {
+    public function where($column, $operator, $value = null){
 
         if ($value == null) {
             $value = $operator;
             $operator = '=';
         }
 
-        $sql = "SELECT * FROM {$this->table} WHERE $column {$operator} ?";
-
-        $this->querySaved = $sql;
-        
-        $this->query($sql, [$value]);
-
-        return $this;
-    }
-
-    public function orderBy($column, $order = 'ASC')
-    {
-        $sql = "{$this->querySaved} ORDER BY {$column} {$order}";
-
-        $this->query($sql);
-
-        return $this;
-    }
-
-    public function create($data)
-    {
-        $columns = array_keys($data);
-        $columns = "" . implode(", ", $columns) . "";
-
-        $values = array_values($data);
-
-        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?, ', count($data) - 1) . "?)";
-
-        $this->query($sql, $values);
-    }
-
-    public function update($id, $data)
-    {
-        foreach ($data as $key => $value) {
-            $fields[] = "{$key} = '{$value}'";
+        if ($this->where) {
+            $this->where .= " AND {$column} {$operator} ?";
+        } else {
+            $this->where = "{$column} {$operator} ?";
         }
 
-        $sql = "UPDATE {$this->table} SET " . implode(', ', $fields) . " WHERE id = {$id}";
+        $this->values[] = $value;
 
-        $this->query($sql);
+        return $this;
+
+    }
+
+    public function orderBy($column, $order = 'ASC'){
+        
+        if ($this->orderBy) {
+            $this->orderBy .= ", {$column} {$order}";
+        } else {
+            $this->orderBy = "{$column} {$order}";
+        }
+
+        return $this;
+    }
+
+    public function first(){
+
+        if (empty($this->query)) {
+
+            $sql = "SELECT {$this->select} FROM {$this->table}";
+            
+            if ($this->where) {
+                $sql .= " WHERE {$this->where}";
+            }
+
+            if ($this->orderBy) {
+                $sql .= " ORDER BY {$this->orderBy}";
+            }
+
+            $this->query($sql, $this->values);
+        }
+
+        return $this->query->fetch_assoc();
+    }
+
+    public function get(){
+        if (empty($this->query)) {
+
+            $sql = "SELECT {$this->select} FROM {$this->table}";
+            
+            if ($this->where) {
+                $sql .= " WHERE {$this->where}";
+            }
+
+            if ($this->orderBy) {
+                $sql .= " ORDER BY {$this->orderBy}";
+            }
+
+            $this->query($sql, $this->values);
+        }
+
+        return $this->query->fetch_all(MYSQLI_ASSOC);
+    }
+
+    public function paginate($cant = 15)
+    {
+        $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+
+        if (empty($this->query)) {
+
+            $sql = "SELECT {$this->select} FROM {$this->table}";
+            
+            if ($this->where) {
+                $sql .= " WHERE {$this->where}";
+            }
+
+            if ($this->orderBy) {
+                $sql .= " ORDER BY {$this->orderBy}";
+            }
+
+            $sql .= " LIMIT " . ($page - 1) * $cant . ", $cant";
+
+            $data = $this->query($sql, $this->values)
+                        ->get();
+        }
+
+        $total = $this->query("SELECT FOUND_ROWS() as total")->first()['total'];
+
+        //Recuperar uri
+        $uri = $_SERVER['REQUEST_URI'];
+        $uri = trim($uri, '/');
+
+        //Eliminar el parámetro page
+        if (strpos($uri, '?')) {
+            $uri = substr($uri, 0, strpos($uri, '?'));
+        }
+
+        $last_page = ceil($total / $cant);
+
+        return [
+            'total' => $total,
+            'from' => ($page - 1) * $cant + 1,
+            'to' => ($page - 1) * $cant + count($data),
+            'current_page' => $page,
+            'last_page' => $last_page,
+            'next_page' => $page < $last_page ? '?page=' . ($page + 1) : null,
+            'prev_page' => $page > 1 ? '?page=' . ($page - 1) : null,
+            'data' => $data,
+        ];
+
+    }
+
+    //Consultas
+    public function all(){
+        $sql = "SELECT * FROM {$this->table}";
+
+        return $this->query($sql)->get();
+    }
+
+    public function find($id){
+        $sql = "SELECT * FROM {$this->table} WHERE id = ?";
+
+        return $this->query($sql, [$id])->first();
+    }
+
+    public function create($data){
+        //INSERT INTO contacts (name, email, phone) VALUES (?, ?, ?)
+
+        $columns = implode(', ', array_keys($data));
+        $values = array_values($data);
+
+        $sql = "INSERT INTO {$this->table} ({$columns}) VALUES (" . str_repeat('?,', count($values) - 1) . "?)";
+
+        $this->query($sql, $values);
+
+        $insert_id = $this->connection->insert_id;
+
+        return $this->find($insert_id);
+    }
+
+    public function update($id, $data){
+
+        //UPDATE contacts SET name = ?, email = ?, phone = ? WHERE id = 1
+
+        $fields = [];
+
+        foreach ($data as $key => $value) {
+            $fields[] = "{$key} = ?";
+        }
+
+        $fields = implode(', ', $fields);
+
+        $sql = "UPDATE {$this->table} SET {$fields} WHERE id = ?";
+
+        $values = array_values($data);
+        $values[] = $id;
+
+        $this->query($sql, array_values($values));
 
         return $this->find($id);
     }
 
-    public function delete($id)
-    {
-        $sql = "DELETE FROM {$this->table} WHERE id = {$id}";
+    public function delete($id){
+        //DELETE FROM contacts WHERE id = 1
 
-        $this->query($sql);
+        $sql = "DELETE FROM {$this->table} WHERE id = ?";
+        $this->query($sql, [$id]);
+
+        return true;
     }
 }

@@ -1,65 +1,86 @@
-*{
-  margin: 0;
-  padding: 0;
-}
+/* -------------------------------- Header --------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&display=swap');
-
-:root{
-
-  --background-body: #2f2f2f;
+.header-container{
+  display: flex;
   
-  /* Colors #6374ae */
+  width: 100%;
+  height: 70px;
 
-  --text: #f2f7fb;
-  --text-secundary: #f2f7fb;
-  --button-default: #839dd1;
-  --button-hover: #6374ae;
-  --button-active: #6374ae;
-  --button-border: #4a5989;
+  background-color: var(--background-list);
 
-  --background-list: #262c40;
-  --background-border: #4a5989;
-
-  /* Font Permanent Marker */
-
-  font-family: "Permanent Marker", cursive;
-  font-weight: 400;
-  font-style: normal;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
+
+.logo-container{
+  display: flex;
+  align-items: center;
+  margin-left: 1%;
+}
+
+.button-login-container, .button-logout-container{
+  display: flex;
+  align-items: center;
+  margin-left: 5%;
+}
+
+.button-login, .button-logout{
+  text-decoration: none;
+  color: var(--text);
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+
+  background-color: var(--button-default);
+
+  padding: 5px;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+
+
+/* -------------------------------- Productos listado --------------------------------------- */
 
 body{
-  display: grid;
-  place-content: center;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   background-color: var(--background-body);
 }
 
 h1{
   font-family: "Permanent Marker", cursive;
-  font-weight: 600;
+  font-weight: bold;
   font-style: normal;
 
   color: var(--text);
   margin-top: 10px;
+  
+  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
 img{
   border-radius: 10px;
-  border: 1px solid var(--background-border);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.container{
-  display: flex;
-  flex-direction: column;
+.logo{
+  box-shadow: none;
+}
+
+.menu-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
 
+  max-width:max-content;
   margin-top: 10px;
-  padding: 10px;
-  gap: 10px;
+  padding: 15px;
+  gap: 15px;
 
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: var(--background-list);
+
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 
 }

@@ -4,28 +4,36 @@ require_once '../autoload.php';
 
 use Lib\Route;
 use App\Controllers\HomeController;
+use App\Controllers\UserController;
 
-Route::get('/', [HomeController::class,'index']);
-Route::get('/indexTest', [HomeController::class,'indexTest']);
-Route::get('/test', [HomeController::class,'test']);
-Route::get('/createProduct', [HomeController::class,'createProduct']);
-Route::post('/createProductRequest', [HomeController::class,'createProductRequest']);
-// Route::get('/login', [HomeController::class,'index']);
-// Route::get('/register', [HomeController::class,'index']);
+// Ruta para el index
+Route::get('/OrderThat/public/', [HomeController::class,'index']);
 
-// Route::get('/product/modify/:id', [HomeController::class,'modify']);
-// Route::get('/product/modify/:slug', function ($slug){
-//     return $slug;
-// });
-// Route::get('/product/create', [HomeController::class,'index']);
+// Ruta para testear
+Route::get('/OrderThat/public/indexTest', [HomeController::class,'indexTest']);
 
-// Route::get('/contact', function (){
-//     return 'HOLA DESDE LA PAGINA CONTACT';
-// });
+// Rutas para la creacion del producto
+Route::get('/OrderThat/public/createProduct', [HomeController::class,'createProduct']);
+Route::post('/OrderThat/public/createProductRequest', [HomeController::class,'createProductRequest']);
 
-// Route::get('/', function (){
-//     return 'HOLA DESDE LA PAGINA ABOUT';
-// });
+// Rutas para la modificacion del producto
+Route::get('/OrderThat/public/editProduct/:id', [HomeController::class,'editProduct']);
+Route::post('/OrderThat/public/editProductRequest/:id', [HomeController::class,'editProductRequest']);
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// Rustas para el Login
+Route::get('/OrderThat/public/login', [UserController::class,'login']);
+Route::post('/OrderThat/public/loginRequest', [UserController::class,'loginRequest']);
+
+// Rutas para el Registro
+Route::get('/OrderThat/public/register', [UserController::class,'register']);
+Route::post('/OrderThat/public/registerRequest', [UserController::class,'registerRequest']);
+
+// Ruta para el perfil
+Route::get('/OrderThat/public/myAccount', [UserController::class,'myAccount']);
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Route::get('/course/prueba', function (){
 //     return "HOLA DESDE LA PAGINA CURSO DE prueba";
@@ -33,11 +41,6 @@ Route::post('/createProductRequest', [HomeController::class,'createProductReques
 
 // Route::get('/course/:slug', function ($slug){
 //     return "HOLA DESDE LA PAGINA course $slug";
-// });
-
-// el orden es muy importante
-// Route::get('/course/prueba', function (){
-//     return "HOLA DESDE LA PAGINA CURSO DE prueba";
 // });
 
 Route::dispatch();
