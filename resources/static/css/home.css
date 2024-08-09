@@ -17,6 +17,8 @@
   margin-left: 1%;
 }
 
+/* El puto logo le queda un toque abajo de espacio en el <a> es porque el <a> siempre tiene un subrayado que por mas que se lo escondas sigue estando, eso es lo que hace que quede un espacio abajo de todos los <a> */
+
 .button-login-container, .button-logout-container{
   display: flex;
   align-items: center;

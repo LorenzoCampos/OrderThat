@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+
+    --color-uno: #f4f2f2;
+    --color-dos: #e2e0df;
+    --color-tres: #c7c2c1;
+    --color-cuatro: #a79e9d;
+    --color-cinco: #8e8281;
+    --color-seis: #7c6f6f;
+    --color-siete: #6d6162;
+    --color-ocho: #594f51;
+    --color-nueve: #4d4647;
+    --color-diez: #443f41;
+    --color-once: #262223;
+
+    /* Font Permanent Marker */
+
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+
+}

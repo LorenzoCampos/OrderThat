@@ -19,7 +19,7 @@
     
     // chequear las sesiones
 
-    if (isset($_SESSION['id'])) { ?>
+    if (isset($_SESSION['id'])) {  ?>
         <div class="button-logout-container">
             <a href="../public"><button class="button-logout"><h3>Cerrar Sesión</h3></button></a>
         </div>
@@ -33,7 +33,7 @@
 <body>
     <h1></h1>
 
-    <h1>CARTA</h1>Z
+    <h1>CARTA</h1>
 
     <div class="menu-container">
 
@@ -45,10 +45,12 @@
 
         <div class="container_product">
 
-            <img src="<?= $value['image_path'] ?>" width="200px">
+            <div class="img-container">
+                <img src="<?= $value['image_path'] ?>" width="200px">
+            </div>
 
             <h2><?= $value['description'] ?></h2>
-            <h3><?= $value['price'] ?></h3>
+            <h3>$<?= $value['price'] ?></h3>
 
             <a href="../public/editProduct/<?= $value['id'] ?>">Editar</a>
 
