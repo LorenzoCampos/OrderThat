@@ -1,3 +1,9 @@
+<?php
+
+include "partials/initSession.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

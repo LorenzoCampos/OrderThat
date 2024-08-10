@@ -1,35 +1,36 @@
-*{
-  margin: 0;
-  padding: 0;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Permanent+Marker&display=swap');
-
-:root{
-
-  --background-body: #4e4e4e;
-  
-  /* Colors #6374ae */
-
-  --text: #f2f7fb;
-  
-  --button-default: #839dd1;
-  --button-hover: #6374ae;
-  --button-active: #6374ae;
-  --button-border: #4a5989;
-
-  --background-list: #262c40;
-
-  /* Font Permanent Marker */
-
-  font-family: "Permanent Marker", cursive;
-  font-weight: 400;
-  font-style: normal;
+html {
+	height: 100%;
 }
 
-body{
-  background-color: var(--background-body);
-  color: var(--text);
+body {
+	/* background-size: cover; */
+	background-color: var(--color-950);
+	height: 100%;
 }
 
+:root {
+	--color-50: #f2f9f9;
+	--color-100: #ddeff0;
+	--color-200: #bfe0e2;
+	--color-300: #92cace;
+	--color-400: #5faab1;
+	--color-500: #438e96;
+	--color-600: #3b757f;
+	--color-700: #356169;
+	--color-800: #325158;
+	--color-900: #2d464c;
+	--color-950: #1a2c32;
 
+	/* Font Permanent Marker */
+
+	font-family: "Rubik Mono One", monospace;
+	font-weight: 400;
+	font-style: normal;
+
+}

@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Controllers;
+
+include "initSession.php";
+
 use App\Models\User;
-use App\Models\Product;
 
 class UserController extends Controller
 {
@@ -23,34 +24,26 @@ class UserController extends Controller
 
         if ($validation)
         {
-            $products = new Product();
-
-            $request = $products->all();
-
             session_start();
 
-            $_SESSION['id'] = $validation['id'];
+            $_SESSION['id_user'] = $validation['id'];
 
-            return $this->view('home', compact('request'));
-        }
-
-        return $this->view('/');
+            header("Location: ../public/");
+        }    
     }
 
     public function logout()
     {
-
-        if (session_status() !== PHP_SESSION_ACTIVE) {
-            session_start();
-        }
-
         // destruye todo lo que tenga que ver con la sesion o todas sus variables al establecer $_SESSION como un array vacio
         $_SESSION = array();
 
         session_destroy();
 
-        header("Location: ../");
+        $_SESION['message'] = "Sesión cerrada";
 
+        header("Location: ../public/");
+        
+        exit();
     }
 
     public function register()
@@ -96,18 +89,31 @@ class UserController extends Controller
             }
         }
 
-        
+        return $this->view('register');
     }
 
     public function myAccount()
     {
-        $id = $_SESSION['id'];
-
         $user = new User();
 
-        $validation = $user->where('id', "$id")->first();
+        $id_user = $_SESSION['id_user'];
 
-        return $this->view('myAccount', compact("validation"));
+        $before_request = $user->where('id', "$id_user")->first();
+
+        return $this->view('myAccount', compact('before_request'));
+    }
+
+    public function myAccountRequest()
+    {
+        $user = new User();
+
+        $id_user = $_SESSION['id_user'];
+
+        $update_user = $_POST;
+
+
+
+        return $this->view('myAccount', compact('request'));
     }
 
 }

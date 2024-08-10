@@ -1,71 +1,69 @@
-/* -------------------------------- Header --------------------------------------- */
+/* Nav settings */
 
-.header-container{
+.nav-container {
   display: flex;
-  
-  width: 100%;
-  height: 70px;
-
-  background-color: var(--background-list);
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-}
-
-.logo-container{
-  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   align-items: center;
-  margin-left: 1%;
+  text-align: center;
+
 }
 
-.logo{
-  box-shadow: none;
-}
-
-.button-login-container{
+.nav-item {
   display: flex;
+  justify-content: center;
   align-items: center;
-  margin-left: 5%;
+  text-align: center;
+  margin: .4em .75em;
+  margin-top: .4em;
+  text-transform: uppercase;
+  font-size: 1.2em;
 }
 
-.button-login{
-  text-decoration: none;
-  color: var(--text);
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+.nav-item img {
+  width: 3em;
+  /* margin: .25em .25em; */
+}
 
-  background-color: var(--button-default);
-
-  padding: 5px;
-  border-radius: 5px;
-
+.nav-item a b {
+  padding: 1.4em 1.4em 1.4em 1.4em;
+  color: var(--color-100);
+  transition: color 170ms;
   cursor: pointer;
 }
 
-/* -------------------------------- Login / Register --------------------------------------- */
+.nav-item b:hover {
+  color: #ffffff;
+}
+
+/* Form settings */
 
 body{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background-color: var(--background-body);
+  flex-direction: column
 }
 
-h1{
-  font-family: "Permanent Marker", cursive;
-  font-weight: bold;
-  font-style: normal;
+body h1 {
+	color: var(--color-100);
+	text-align: center;
+	margin: 1em 0 .4em 0;
+  text-transform: uppercase;
+}
 
+h3 {
   display: flex;
   justify-content: center;
 
-  color: var(--text);
-  
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  font-family: "Rubik Mono One", monospace;
+	font-weight: 400;
+	font-style: normal;
 }
 
-.form-container{
+.form-container {
   display: flex;
   flex-direction: column;
+  place-self: center;
   align-items: center;
 
   max-width: max-content;
@@ -74,62 +72,69 @@ h1{
   gap: 16px;
 
   border-radius: 8px;
-  background-color: var(--background-list);
+  background-color: var(--color-400);
 
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-form{
+form {
   display: flex;
   flex-direction: column;
-  align-items: center;
 
   max-width: max-content;
   gap: 16px;
 
   border-radius: 8px;
+
 }
 
-form input{
-  text-decoration: none;
-  color: var(--text);
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+form input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-  padding: 8px;
+  text-decoration: none;
+  color: var(--color-100);
+
+  padding: 10px;
   border-radius: 10px;
 
-  background-color: var(--button-default);
+  background-color: var(--color-600);
 
-  font-family: "Permanent Marker", cursive;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
+  font-family: "Rubik Mono One", monospace;
+	font-weight: 400;
+	font-style: normal;
 
+  border: none;
   cursor: pointer;
 }
 
 form input::placeholder {
-  color: var(--text);
+  color: var(--color--200);
 }
 
-.button-register{
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-decoration: none;
-  color: var(--text);
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+}
 
-  background-color: var(--button-default);
+.button-register {
+  padding: 5px 20px;
+  border-radius: 5px;
+  border: none;
 
-  padding: 5px;
-  border-radius: 10px;
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+  color: var(--color-200);
+  background-color: var(--color-600);
 
   cursor: pointer;
 }
 
-h3{
-  font-family: "Permanent Marker", cursive;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 16px;
-}
