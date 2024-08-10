@@ -5,141 +5,61 @@ include "partials/initSession.php";
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../resources/static/css/main.css">
-	<link rel="stylesheet" href="../resources/static/css/usersLolo.css">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="../resources/static/img/Logo/rub-white.png">
+	<link rel="stylesheet" href="../resources/static/css/main.css">
+	<link rel="stylesheet" href="../resources/static/css/account.css">
+	<title>Mi cuenta</title>
 </head>
+
+<nav>
+	<div class="nav-container">
+		<div class="nav-item">
+			<a href="../public"><img src="../resources/static/img/Logo/rub-white.png"></a>
+		</div>
+
+		<div class="nav-item-user">
+			<div class="nav-item">
+				<a href="../public/cart"><b>Mis pedidos</b></a>
+				<a href="../public/"><b>Inicio</b></a>
+			</div>
+
+			<div class="nav-item">
+				<a href="../public/logout"><b>Cerrar Sesión</b></a>
+			</div>
+		</div>
+	</div>
+
+</nav>
+
 <body>
-    
+
+	<h1>Mi cuenta</h1>
+	<div class="form-container">
+		<form action="../public/myAccount" method="post">
+			<h4><label for="first_name">Nombre:</label></h4>
+			<input type="text" id="first_name" name="first_name">
+
+			<h4><label for="last_name">Apellido:</label></h4>
+			<input type="text" id="last_name" name="last_name">
+
+			<input type="text" name="adress">
+
+			<input type="number" name="phone_number">
+			<input type="mail" name="email" required>
+
+			<div class="button-container">
+				<input class="button-modif" type="submit">
+			</div>
+			
+		</form>
+	</div>
+
+
 </body>
-</html>
 
-<main class="main-users">
-
-    <?php if (isset($request)) { ?>
-
-        <div class="my-account-container">
-
-        <div class="my-account-form">
-
-            <form action="../public/myAccountRequest" method="post">
-
-                <div class="my-account-users_item username">
-            
-                    <label for="first_name">Username<span>*</span></label>
-
-                    <input type="text" name="first_name" id="first_name" value="<?= $request['first_name'] ?>">
-
-                </div>
-
-                <div class="my-account-users_item username">
-            
-                    <label for="last_name">Username<span>*</span></label>
-
-                    <input type="text" name="last_name" id="last_name" value="<?= $request['last_name'] ?>">
-
-                </div>
-
-                <div class="my-account-users_item email">
-        
-                    <label for="email">Email<span>*</span></label>
-            
-                    <input type="email" name="email" id="email" value="<?= $request['email'] ?>" required>
-
-                </div>
-
-                <div class="my-account-users_item password">
-
-                    <label for="password">Current Password<span>*</span></label>
-
-                    <input type="password" name="password" id="password" required>
-
-                </div>
-
-                <div class="my-account-users_item password">
-
-                    <label for="new_password">New Password<span>*</span></label>
-
-                    <input type="password" name="new_password" id="new_password" required>
-
-                </div>
-
-                <div class="my-account-users_item password">
-
-                    <label for="repeat_new_password">Repeat New Password<span>*</span></label>
-
-                    <input type="password" name="repeat_new_password" id="repeat_new_password" required>
-
-                </div>
-
-                <div class="my-account-users_submit save">
-                    <button type="submit">Guardar Cambios</button>
-                </div>
-
-            </form>
-
-        </div>
-
-        </div>
-
-    <?php } else { ?>
-
-            <div class="my-account-container">
-
-            <div class="my-account-form">
-
-                <form action="../public/myAccountRequest" method="post">
-
-                <?php
-
-                if (isset($_SESSION['error_message'])) {
-
-                    $errorMessage = $_SESSION['error_message'];
-                    echo "<h2>$errorMessage</h2>";
-                    unset($_SESSION['error_message']);
-                }
-
-                ?>
-
-                <h1>Vista de Cuenta</h1>
-
-                <div class="my-account-users_item username">
-            
-                    <label for="first_name">Nombre<span>*</span></label>
-
-                    <input type="text" name="first_name" id="first_name" value="<?= $before_request['first_name'] ?>" readonly>
-
-                </div>
-
-                <div class="my-account-users_item username">
-            
-                    <label for="last_name">Apellido<span>*</span></label>
-
-                    <input type="text" name="last_name" id="last_name" value="<?= $before_request['last_name'] ?>" readonly>
-
-                </div>
-
-                <div class="my-account-users_item email">
-
-                    <label for="email">Email<span>*</span></label>
-
-                    <input type="email" name="email" id="email" value="<?= $before_request['email'] ?>" required readonly>
-
-                </div>
-
-                <div class="my-account-users_submit edit">
-                    <button type="submit">Modificar</button>
-                </div>
-
-                </form>
-            
-            </div>
-
-            </div>
-
-    <?php } ?>
-</main>
+<html>

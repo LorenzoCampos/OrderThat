@@ -28,11 +28,12 @@ include "partials/initSession.php";
 
 			<div class="nav-item-user">
 				<div class="nav-item">
+					<a href="../public/cart"><b>Carrito</b></a>
 					<a href="../public/myAccount"><b>Mi Cuenta</b></a>
 				</div>
 
 				<div class="nav-item">
-					<a href="../public/logout"><b>Cerrar Sesion</b></a>
+					<a href="../public/logout"><b>Cerrar Sesión</b></a>
 				</div>
 			</div>
 
@@ -40,7 +41,7 @@ include "partials/initSession.php";
 		} else {
 		?>
 			<div class="nav-item">
-				<a href="../public/login"><b>Iniciar Sesion</b></a>
+				<a href="../public/login"><b>Iniciar Sesión</b></a>
 			</div>
 			
 		<?php

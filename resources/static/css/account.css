@@ -1,40 +1,65 @@
 /* Nav settings */
 
 .nav-container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
+	display: flex;
+	height: 100%;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	background-color: var(--color-600);
 
 }
 
 .nav-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin: .4em .75em;
-  margin-top: .4em;
-  text-transform: uppercase;
-  font-size: 1.2em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: .4em .75em;
+	margin-top: .4em;
+	text-transform: uppercase;
+	font-size: 1.2em;
 }
 
 .nav-item img {
-  width: 3em;
-  /* margin: .25em .25em; */
+	width: 3em;
+	/* margin: .25em .25em; */
 }
 
 .nav-item a b {
-  padding: 1.4em 1.4em 1.4em 1.4em;
-  color: var(--color-100);
-  transition: color 170ms;
-  cursor: pointer;
+	padding: 1.4em 1.4em 1.4em 1.4em;
+	color: var(--color-100);
+	transition: color 170ms;
+	cursor: pointer;
 }
 
 .nav-item b:hover {
-  color: #ffffff;
+	color: #ffffff;
+}
+
+.nav-item-user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: .4em .75em;
+	margin-top: .4em;
+}
+
+/* End Nav settings */
+
+a {
+	outline: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: var(--color-50);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
 }
 
 /* Form settings */
@@ -58,6 +83,10 @@ p {
   font-family: "Rubik Mono One", monospace;
 	font-weight: 400;
 	font-style: normal;
+}
+
+h4{
+  display: flex;
   color: var(--color-100);
 }
 
@@ -72,7 +101,7 @@ p {
   padding: 24px;
   gap: 16px;
 
-  border-radius: 8px;
+  border-radius: .3em;
   background-color: var(--color-400);
 
 }
@@ -83,10 +112,6 @@ form {
 
   max-width: max-content;
   gap: 16px;
-  width: 400px;
-
-  border-radius: 8px;
-
 }
 
 form input {
@@ -97,8 +122,9 @@ form input {
   text-decoration: none;
   color: var(--color-100);
 
+  width: 300px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: .3em;
 
   background-color: var(--color-600);
 
@@ -117,24 +143,17 @@ form input::placeholder {
 .button-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 
+  text-decoration: none;
 }
 
-.register-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
+.button-modif {
+  border: none;
 
-.register-link a {
-  margin-left: 10px;
-}
+  color: var(--color-200);
+  background-color: var(--color-600);
 
-a{
-  text-decoration-line: underline;
-  color: var(--color-100);
+  cursor: pointer;
 }
 

@@ -32,6 +32,7 @@ Route::post('/OrderThat/public/registerRequest', [UserController::class,'registe
 
 // Ruta para el perfil
 Route::get('/OrderThat/public/myAccount', [UserController::class,'myAccount']);
+Route::post('/OrderThat/public/myAccountRequest', [UserController::class,'myAccountRequest']);
 
 // Ruta para cerrar sesion
 Route::get('/OrderThat/public/logout', [UserController::class,'logout']);
