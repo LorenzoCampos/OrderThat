@@ -138,3 +138,14 @@ a{
   color: var(--color-100);
 }
 
+.error-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.error {
+  color: red;
+}
+
