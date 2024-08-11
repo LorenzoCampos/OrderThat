@@ -33,32 +33,69 @@ include "partials/initSession.php";
 			</div>
 		</div>
 	</div>
-
 </nav>
 
 <body>
 
+<?php
+if (isset($requestPassword)) {
+?>
+	<h1>Cambiar Contraseña</h1>
+	<div class="form-container">
+		<form action="../public/changePasswordRequest" method="post">
+
+		<h4><label for="password">Contraseña actual:</label></h4>
+		<input type="password" name="current_password">
+
+		<h4><label for="password">Nueva Contraseña:</label></h4>
+		<input type="password" name="new_password">
+
+		<h4><label for="password">Repetir Nueva Contraseña:</label></h4>
+		<input type="password" name="repeat_new_password">
+
+		<div class="button-container">
+			<input class="button-modif" type="submit" value="Cambiar Contraseña">
+		</div>
+	</form>
+	</div>
+
+	<div class="change-password-link">
+		<a href="../public/myAccount"><p>Cambiar Datos Personales</p></a>
+	</div>
+
+<?php
+} else if (isset($request)) {
+?>
 	<h1>Mi cuenta</h1>
 	<div class="form-container">
-		<form action="../public/myAccount" method="post">
-			<h4><label for="first_name">Nombre:</label></h4>
-			<input type="text" id="first_name" name="first_name">
+		<form action="../public/myAccountRequest" method="post">
 
-			<h4><label for="last_name">Apellido:</label></h4>
-			<input type="text" id="last_name" name="last_name">
+			<h4><label>Nombre:</label></h4>
+			<input type="text" name="first_name" value="<?= $request['first_name'] ?>">
 
-			<input type="text" name="adress">
+			<h4><label>Apellido:</label></h4>
+			<input type="text" name="last_name" value="<?= $request['last_name'] ?>">
 
-			<input type="number" name="phone_number">
-			<input type="mail" name="email" required>
+			<h4><label>Teléfono:</label></h4>
+			<input type="number" name="phone_number" value="<?= $request['phone_number'] ?>">
+
+			<h4><label>Email:</label></h4>
+			<input type="mail" name="email" value="<?= $request['email'] ?>" required>
 
 			<div class="button-container">
-				<input class="button-modif" type="submit">
+				<input class="button-modif" type="submit" value="Modificar">
 			</div>
-			
+
 		</form>
 	</div>
 
+	<div class="change-password-link">
+		<a href="../public/changePassword"><p>Cambiar Contraseña</p></a>
+	</div>
+
+<?php
+}
+?>
 
 </body>
 
