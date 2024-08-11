@@ -34,20 +34,24 @@ include "partials/initSession.php";
       <input type="submit" value="Iniciar Sesión">
     </form>
 
-    <?php
-      if (isset($_SESSION['error_message']))
-      {
-        $errorMessage = $_SESSION['error_message'];
-        echo "<p>$errorMessage</p>";
-        unset($_SESSION['error_message']);
-      }
-    ?>
-
   </div>
 
   <div class="register-link">
     <p>¿No tienes cuenta?</p>
     <a href="../public/register"><p>Registrarse<p></a>
   </div>
+
+  <div class="error-message">
+  <?php
+      if (isset($_SESSION['error_message']))
+      {
+        $errorMessage = $_SESSION['error_message'];
+        echo "<p class='error'>$errorMessage</p>";
+        unset($_SESSION['error_message']);
+      }
+    ?>
+  </div>
+
+
 </body>
 </html>
