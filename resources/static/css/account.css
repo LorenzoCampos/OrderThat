@@ -111,7 +111,7 @@ form {
   flex-direction: column;
 
   max-width: max-content;
-  gap: 16px;
+  gap: 8px;
 }
 
 form input {
@@ -131,6 +131,8 @@ form input {
   font-family: "Rubik Mono One", monospace;
 	font-weight: 400;
 	font-style: normal;
+  font-size: 16px;
+  color: var(--color-100);
 
   border: none;
   cursor: pointer;
@@ -155,5 +157,17 @@ form input::placeholder {
   background-color: var(--color-600);
 
   cursor: pointer;
+}
+
+.change-password-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.change-password-link a, p {
+  text-decoration: underline;
+  color: var(--color-100);
 }
 
