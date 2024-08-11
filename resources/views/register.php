@@ -36,15 +36,6 @@ include "partials/initSession.php";
       if (isset($email)) { echo $email; }
       ?>" required>
       
-      <?php
-      if (isset($_SESSION['error_message']))
-      {
-        $errorMessage = $_SESSION['error_message'];
-        echo "<p>$errorMessage!</p>";
-        unset($_SESSION['error_message']);
-      }
-      ?>
-      
       <input type="password" name="password" placeholder="Contraseña..." value="" required>
       <input type="submit" value="Registrarse">
     </form>
@@ -53,6 +44,17 @@ include "partials/initSession.php";
   <div class="register-link">
     <p>¿Ya tienes cuenta?</p>
     <a href="../public/login"><p>Iniciar Sesión<p></a>
+  </div>
+
+  <div class="error-message">
+  <?php
+      if (isset($_SESSION['error_message']))
+      {
+        $errorMessage = $_SESSION['error_message'];
+        echo "<p class='error'>$errorMessage</p>";
+        unset($_SESSION['error_message']);
+      }
+    ?>
   </div>
 
 </body>
