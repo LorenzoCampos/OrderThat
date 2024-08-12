@@ -210,6 +210,17 @@ class UserController extends Controller
                 if ($update_password['new_password'] == $update_password['confirm_new_password'])
                 {
                     $validation = $user->update("$id_user", $update_password);
+
+                    if ($validation)
+                    {
+                        header("Location: ../public/login");
+
+                        exit;
+                    }
+                    else
+                    {
+                        $_SESSION['error_message'] = "Error al actualizar contraseña";
+                    }
                 }
                 else
                 {
@@ -225,6 +236,9 @@ class UserController extends Controller
         {
             $_SESSION['error_message'] = "Tu contrseña actual no coincide";
         }
-    }
+        
+        header("Location: ../public/changePassword");
 
+        exit;
+    }
 }
