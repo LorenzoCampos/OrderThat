@@ -20,6 +20,7 @@ include "partials/initSession.php";
 	<div class="nav-container">
 		<div class="nav-item">
 			<a href="../public"><img src="../resources/static/img/Logo/rub-white.png"></a>
+			<input type="checkbox" class="theme-checkbox" id="darkMode">
 		</div>
 
 		<?php
@@ -110,6 +111,9 @@ include "partials/initSession.php";
 		?>
 
 	</div>
-	</main>
+
+	<script src="../resources/static/js/darkMode.js"></script>
+
+</body>
 
 </html>
