@@ -1,67 +1,119 @@
+<?php
+
+include "partials/initSession.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio</title>
-    <link rel="icon" href="../resources/static/img/Logo/rub-white.png">
-    <link rel="stylesheet" href="../resources/static/css/main.css">
-    <link rel="stylesheet" href="../resources/static/css/home.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inicio</title>
+	<link rel="icon" href="../resources/static/img/Logo/rub-white.png">
+	<link rel="stylesheet" href="../resources/static/css/main.css">
+	<link rel="stylesheet" href="../resources/static/css/home.css">
 </head>
 
-<div class="header-container">
+<nav>
+	<div class="nav-container">
+		<div class="nav-item">
+			<a href="../public"><img src="../resources/static/img/Logo/rub-white.png"></a>
+			<input type="checkbox" class="theme-checkbox" id="darkMode">
+		</div>
 
-    <div class="logo-container">
-        <a href="../public"><img class="logo" src="../resources/static/img/Logo/rub-white.png" alt="logo" width="50px"></a>
-    </div>
+		<?php
+		if (isset($_SESSION['id_user'])) {
+		?>
 
-    <?php
-    
-    // chequear las sesiones
+			<div class="nav-item-user">
+				<div class="nav-item">
+					<a href="../public/cart"><b>Carrito</b></a>
+					<a href="../public/myAccount"><b>Mi Cuenta</b></a>
+				</div>
 
-    if (isset($_SESSION['id'])) {  ?>
-        <div class="button-logout-container">
-            <a href="../public"><button class="button-logout"><h3>Cerrar Sesión</h3></button></a>
-        </div>
-    <?php } else { ?>
-        <div class="button-login-container">
-            <a href="../public/login"><button class="button-login"><h3>Iniciar Sesión</h3></button></a>
-        </div>
-    <?php } ?>
-</div>
+				<div class="nav-item">
+					<a href="../public/logout"><b>Cerrar Sesión</b></a>
+				</div>
+			</div>
+
+		<?php
+		} else {
+		?>
+			<div class="nav-item">
+				<a href="../public/login"><b>Iniciar Sesión</b></a>
+			</div>
+			
+		<?php
+		}
+		?>
+	</div>
+</nav>
 
 <body>
-    <h1></h1>
 
-    <h1>CARTA</h1>
+	<h1>CARTA</h1>
 
-    <div class="menu-container">
+	<div class='products-container'>
 
-    <?php
+		<?php
+		foreach ($request as $key => $value) {
+		?>
 
-    foreach ($request as $key => $value)
-    {
-        ?>
+			<div class='product'>
+			
+				<div class='product-item-container'>
 
-        <div class="container_product">
+					<a class='link-container' href='#'>
+						<div class='img-container'>
 
-            <div class="img-container">
-                <img src="<?= $value['image_path'] ?>" width="200px">
-            </div>
+							<img src="<?= $value['image_path'] ?>">
 
-            <h2><?= $value['description'] ?></h2>
-            <h3>$<?= $value['price'] ?></h3>
+						</div>
+					</a>
+					
+					<div class='product-description-container'>
+						<div class='product-description'>
 
-            <a href="../public/editProduct/<?= $value['id'] ?>">Editar</a>
+							<span><b><?= $value['description'] ?></b></span>
 
-        </div>
+							<span><b>Precio: $<?= $value['price'] ?></b></span>
 
-        <?php
-    }
+							<a href="../public/editProduct/<?= $value['id'] ?>">
+								<div class='product-description-btn'>
+									<span>Modificar</span>
+								</div>
+							</a>
+							<!--
 
-    ?>
-    </div>
-    
+                // Permisos de Administrador
+
+                <a href='../public/'>
+                    <div class='item__description-btn'>
+                        <span>Modificar</span>
+                    </div>
+                </a>
+
+                <a href='products.php?id=$row[0]'>
+                    <div class='item__description-btn'>
+                        <span>Borrar</span>
+                    </div>
+                </a> -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		<?php
+		}
+		?>
+
+	</div>
+
+	<script src="../resources/static/js/darkMode.js"></script>
+
 </body>
 
 </html>

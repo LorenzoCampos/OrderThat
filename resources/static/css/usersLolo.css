@@ -1,0 +1,226 @@
+/* my-account settings */
+
+.my-account-container {
+    width: 35em;
+    background-color: var(--color-400);
+    border-radius: .6em;
+    padding: 1.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.my-account-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.my-account-form form {
+    color: #ffffff;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+
+
+.my-account-users_submit {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-account-users_item {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+}
+
+.my-account-users_item input {
+    transition: outline 140ms;
+    padding: .625em;
+    height: 2.5em;
+    border-radius: 0.2em;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+}
+
+.my-account-users_item input:focus {
+    outline: .15em solid var(--color-300);
+    border: .1em solid var(--color-600);
+}
+
+.my-account-users_item label span {
+    color: red;
+}
+
+.my-account-users_submit {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.my-account-users_submit button {
+    transition: --color-950 170ms;
+    background-color: var(--color-800);
+    width: 100%;
+    color: #ffffff;
+    padding: .125em 1em;
+    height: 2.75em;
+    border-radius: 0.2em;
+    font-size: 1em;
+    line-height: 1.5em;
+    border: 0;
+    cursor: pointer;
+}
+
+.my-account-users_submit button:hover {
+    background-color: var(--color-200);
+}
+
+
+/* End my-account settings */
+
+/* ------------------------------------------------------------------------------------------------------------ */ 
+
+/* Log_in and Sing_up settings */
+
+
+.main-users {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-users-sing_up {
+    width: 30em;
+    background-color: var(--color-text-300);
+    border-radius: .6em;
+    padding: 1.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.container-users-log_in {
+    width: 35em;
+    background-color: var(--color-text-300);
+    border-radius: .6em;
+    padding: 1.9em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.form-users {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-users h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.6em;
+    margin-bottom: 1em;
+}
+
+.form-users form {
+    color: #ffffff;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+/* .my-account {
+    color: #ffffff;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+} */
+
+.form-users_item {
+    display: flex;
+    flex-direction: column;
+    gap: .2em;
+}
+
+.form-users_item input {
+    transition: outline 140ms;
+    padding: .625em;
+    height: 2.5em;
+    border-radius: 0.2em;
+    outline: none;
+    border: 0;
+    text-decoration: none;
+}
+
+.form-users_item input:focus {
+    outline: .15em solid var(--color-300);
+    border: .1em solid var(--color-500);
+}
+
+.form-users_item label span {
+    color: red;
+}
+
+.form-users_submit {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-users_submit button {
+    transition: background-color 170ms;
+    background-color: var(--color-700);
+    width: 100%;
+    color: #ffffff;
+    padding: .125em 1em;
+    height: 2.75em;
+    border-radius: 0.2em;
+    font-size: 1em;
+    line-height: 1.5em;
+    border: 0;
+    cursor: pointer;
+}
+
+.form-users_submit button:hover {
+    background-color: var(--color-200);
+}
+
+.message-users {
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    font-size: .9em;
+}
+
+.message-users_text {
+    margin-right: .4em;
+}
+
+.message-users_redirect a p {
+    transition: color 170ms;
+    color: var(--color-300);
+}
+
+.message-users_redirect a p:hover {
+    color: var(--color-300);
+    text-decoration: underline;
+}
+
+/* End Log_in and Sing_up settings */

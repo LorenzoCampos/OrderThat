@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Controllers;
+
+include "initSession.php";
+
 use App\Models\Product;
 
 class HomeController extends Controller

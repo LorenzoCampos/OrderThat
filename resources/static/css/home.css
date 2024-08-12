@@ -1,88 +1,233 @@
-/* -------------------------------- Header --------------------------------------- */
+/* Nav settings */
 
-.header-container{
-  display: flex;
-  
-  width: 100%;
-  height: 70px;
+.nav-container {
+	display: flex;
+	height: 100%;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	background-color: var(--color-600);
 
-  background-color: var(--background-list);
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 
-.logo-container{
-  display: flex;
-  align-items: center;
-  margin-left: 1%;
+.nav-item {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: .4em .75em;
+	margin-top: .4em;
+	text-transform: uppercase;
+	font-size: 1.2em;
+
+	gap: 1em;
 }
 
-/* El puto logo le queda un toque abajo de espacio en el <a> es porque el <a> siempre tiene un subrayado que por mas que se lo escondas sigue estando, eso es lo que hace que quede un espacio abajo de todos los <a> */
-
-.button-login-container, .button-logout-container{
-  display: flex;
-  align-items: center;
-  margin-left: 5%;
+.nav-item img {
+	width: 3em;
+	/* margin: .25em .25em; */
 }
 
-.button-login, .button-logout{
-  text-decoration: none;
-  color: var(--text);
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+.nav-item a b {
+	padding: 1.4em 1.4em 1.4em 1.4em;
+	color: var(--color-100);
+	transition: color 170ms;
+	cursor: pointer;
+}
 
-  background-color: var(--button-default);
+.nav-item b:hover {
+	color: #ffffff;
+}
 
-  padding: 5px;
-  border-radius: 5px;
+.nav-item-user {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: .4em .75em;
+	margin-top: .4em;
+}
 
+/* End Nav settings */
+
+/* ---------------------------------------------------------------------------------------- */
+
+a {
+	outline: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: var(--color-50);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+/* Products settings */
+
+
+body h1 {
+	color: var(--color-100);
+	text-align: center;
+	margin: 1em 0 .4em 0;
+}
+
+/* .main-products {
+	display: grid;
+	grid-template-columns: 1fr 100fr;
+	grid-column-gap: .8em;
+	padding: 1em;
+} */
+
+/* ---------------------------------------------------------------------------------------- */
+
+/* List Products settings */
+
+.products-container {
+	width: 98.3%;
+	padding: .7em;
+	gap: 1em;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-content: space-around;
+}
+
+.product {
+	width: 18em;
+	max-height: 100%;
+	background-color: var(--color-400);
+	border-radius: .4em;
+}
+
+.product-item-container {
+	width: 100%;
+	max-height: 100%;
+	border: .15em;
+	border-radius: .3em;
+}
+
+.img-container {
+	height: 18em;
+	width: 100%;
+	display: flex;
+	object-fit: contain;
+	overflow: hidden;
+	border-top-left-radius: .3em;
+	border-top-right-radius: .3em;
+	justify-content: center;
+	align-items: center;
+}
+
+.img-container img {
+	max-height: 100%;
+	max-width: 100%;
+	object-fit: contain;
+	/* background-color: var(--color-tres); */
+}
+
+.product-description-container {
+	padding: .75em;
+}
+
+.product-description {
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	grid-row-gap: .4em;
+}
+
+.product-description-btn {
+	transition: var(--color-300) 170ms;
+	width: 100%;
+	height: 2em;
+	cursor: pointer;
+	background-color: var(--color-950);
+	border-radius: .75em;
+	place-content: center;
+	text-align: center;
+}
+
+.product-description-btn a span {
+	color: var(--color-200);
+	font-size: 1em;
+}
+
+.product-description-btn:hover {
+	background-color: var(--color-500);
+}
+
+
+/*Dark Mode Switch*/
+ 
+.theme-checkbox {
+  --toggle-size: 8px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 6.25em;
+  height: 3.125em;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 0;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 99em;
+  position: relative;
   cursor: pointer;
+  font-size: var(--toggle-size);
+}
+
+.theme-checkbox::before {
+  content: "";
+  width: 2.25em;
+  height: 2.25em;
+  position: absolute;
+  top: 0.438em;
+  left: 0.438em;
+  background: -webkit-gradient(linear, left top, right top, color-stop(50%, #efefef), color-stop(50%, #2a2a2a)) no-repeat;
+  background: -o-linear-gradient(left, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background: linear-gradient(to right, #efefef 50%, #2a2a2a 50%) no-repeat;
+  background-size: 205%;
+  background-position: 100%;
+  border-radius: 50%;
+  -webkit-transition: 0.4s;
+  -o-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.theme-checkbox:checked::before {
+  left: calc(100% - 2.25em - 0.438em);
+  background-position: 0;
+}
+
+.theme-checkbox:checked {
+  background-position: 100%;
 }
 
 
+/* End List Products settings */
 
-/* -------------------------------- Productos listado --------------------------------------- */
-
-body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background-color: var(--background-body);
+/* .list-div_container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
-h1{
-  font-family: "Permanent Marker", cursive;
-  font-weight: bold;
-  font-style: normal;
-
-  color: var(--text);
-  margin-top: 10px;
-  
-  text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+.list-div-item_container {
+	display: inline-block;
 }
 
-img{
-  border-radius: 10px;
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-}
+.list-div_container div {
+	margin: 0 1.6em 0 1.6em;
+} */
 
-.logo{
-  box-shadow: none;
-}
 
-.menu-container{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-
-  max-width:max-content;
-  margin-top: 10px;
-  padding: 15px;
-  gap: 15px;
-
-  border-radius: 15px;
-  background-color: var(--background-list);
-
-  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
-
-}
+/* End Products settings */
