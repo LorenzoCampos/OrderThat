@@ -15,7 +15,7 @@
 
 		<div class='form-modify_item'>
 			<label for='image'>Imagen<span>*</span></label>
-			<input class='image' type='file' name='image' required>
+			<input class='image' type='file' name='image'>
 		</div>
 
 		<div class='form-modify_item'>

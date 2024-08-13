@@ -15,7 +15,7 @@ class HomeController extends Controller
         $request = $products->all();
 
         // Retornar el View home con los datos
-        return $this->view('homeLolo', compact('request'));
+        return $this->view('home', compact('request'));
     }
 
     public function indexTest()

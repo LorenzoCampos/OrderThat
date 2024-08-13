@@ -80,7 +80,7 @@ include "partials/initSession.php";
 
 							<span><b>Precio: $<?= $value['price'] ?></b></span>
 
-							<a href="../public/editProduct/<?= $value['id'] ?>">
+							<a class="link" href="../public/editProduct/<?= $value['id'] ?>">
 								<div class='product-description-btn'>
 									<span>Modificar</span>
 								</div>
