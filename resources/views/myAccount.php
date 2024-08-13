@@ -73,7 +73,7 @@ if (isset($requestPassword)) {
 <?php
 } else if (isset($request)) {
 ?>
-	<h1>Mi cuenta</h1>
+	<h1>DATOS PERSONALES</h1>
 	<div class="form-container">
 		<form action="../public/myAccountRequest" method="post">
 

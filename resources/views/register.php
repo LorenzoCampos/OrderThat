@@ -43,7 +43,7 @@ include "partials/initSession.php";
 
   <div class="register-link">
     <p>¿Ya tienes cuenta?</p>
-    <a href="../public/login"><p>Iniciar Sesión<p></a>
+    <a href="../public/login"><p class="link">Iniciar Sesión<p></a>
   </div>
 
   <div class="error-message">

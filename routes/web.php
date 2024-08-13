@@ -41,7 +41,7 @@ Route::get('/OrderThat/public/logout', [UserController::class,'logout']);
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Route::get('/course/prueba', function (){
+// Route::get('/OrderThat/public/', function (){
 //     return "HOLA DESDE LA PAGINA CURSO DE prueba";
 // });
 

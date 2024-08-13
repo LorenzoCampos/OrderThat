@@ -165,6 +165,11 @@ body h1 {
 	text-decoration: none;
 }
 
+.link:visited{
+	text-decoration: none;
+	color: var(--color-50);
+}
+
 
 /*Dark Mode Switch*/
  

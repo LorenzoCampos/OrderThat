@@ -38,7 +38,7 @@ include "partials/initSession.php";
 
   <div class="register-link">
     <p>¿No tienes cuenta?</p>
-    <a href="../public/register"><p>Registrarse<p></a>
+    <a href="../public/register"><p class="link">Registrarse<p></a>
   </div>
 
   <div class="error-message">
