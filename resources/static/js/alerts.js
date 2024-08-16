@@ -1,11 +1,20 @@
 // Alertas de confirmación
 
 // Modificar datos personales
-document.getElementById("buttonModif").addEventListener("click", function() {
+document.getElementById("buttonModifDatos").addEventListener("click", function() {
   alert("Se han modificado los datos personales!");
 });
 
 // Modificar contraseña
-document.getElementById("buttonModif2").addEventListener("click", function() {
+document.getElementById("buttonModifPass").addEventListener("click", function() {
   alert("Se ha modificado la contraseña!");
 });
+
+// Modificar direcciones
+document.getElementById("buttonModifAddress").addEventListener("click", function() {
+  alert("Se ha modificado la dirección!");
+})
+
+document.getElementById("buttonModifAddress2").addEventListener("click", function() {
+  alert("Se ha guardado tu nueva dirección!");
+})
