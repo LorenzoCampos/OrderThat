@@ -39,9 +39,9 @@ include "partials/initSession.php";
 	<div class="sub-nav-container__item">
 		<div class="change-link">
 			<a href="../public/myAccount"><p>Datos Personales</p></a>
-			<a href="../public/myAddresses"><p>Direcciones</p></a>
+			<a href="../public/myAddress"><p>Direcciones</p></a>
 			<a href="../public/myPayment"><p>Metodos de Pago</p></a>
-			<a href="../public/myRecentOrders"><p>Historial de pedidos</p"></a>
+			<a href="../public/myRecentOrders"><p>Historial de pedidos</p></a>
 		</div>
 	</div>
 </div>
@@ -65,7 +65,7 @@ if (isset($requestPassword)) {
 		<input type="password" name="repeat_new_password">
 
 		<div class="button-container">
-			<input class="button-modif" type="submit" value="Cambiar Contraseña" id="buttonModif2">
+			<input class="button-modif" type="submit" value="Cambiar Contraseña" id="buttonModifPass">
 		</div>
 	</form>
 	</div>
@@ -90,7 +90,7 @@ if (isset($requestPassword)) {
 			<input type="mail" name="email" value="<?= $request['email'] ?>" required>
 
 			<div class="button-container">
-				<input class="button-modif" type="submit" value="Modificar" id="buttonModif">
+				<input class="button-modif" type="submit" value="Modificar" id="buttonModifDatos">
 			</div>
 
 		</form>
@@ -99,8 +99,6 @@ if (isset($requestPassword)) {
 	<div class="link-container">
 		<a class="link" href="../public/changePassword"><p class="link-text">Cambiar contraseña</p></a>
 	</div>
-
-	
 
 <?php
 }

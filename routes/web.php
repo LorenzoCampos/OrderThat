@@ -22,7 +22,7 @@ Route::post('/OrderThat/public/editProductRequest/:id', [HomeController::class,'
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-// Rustas para el Login
+// Rutas para el Login
 Route::get('/OrderThat/public/login', [UserController::class,'login']);
 Route::post('/OrderThat/public/loginRequest', [UserController::class,'loginRequest']);
 
@@ -34,6 +34,9 @@ Route::post('/OrderThat/public/registerRequest', [UserController::class,'registe
 Route::get('/OrderThat/public/myAccount', [UserController::class,'myAccount']);
 Route::post('/OrderThat/public/myAccountRequest', [UserController::class,'myAccountRequest']);
 Route::get('/OrderThat/public/changePassword', [UserController::class,'changePassword']);
+
+// Ruta para la lista de direcciones
+Route::post('/OrderThat/public/myAddress', [UserController::class,'myAddress']);
 
 
 // Ruta para cerrar sesion

@@ -241,4 +241,9 @@ class UserController extends Controller
 
         exit;
     }
+
+    public function myAddress(){
+        return $this->view('myAddress');
+    }
+
 }
