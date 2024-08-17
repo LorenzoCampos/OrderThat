@@ -36,7 +36,9 @@ Route::post('/OrderThat/public/myAccountRequest', [UserController::class,'myAcco
 Route::get('/OrderThat/public/changePassword', [UserController::class,'changePassword']);
 
 // Ruta para la lista de direcciones
-Route::post('/OrderThat/public/myAddress', [UserController::class,'myAddress']);
+Route::get('/OrderThat/public/myAddress', [UserController::class,'myAddress']);
+Route::get('/OrderThat/public/newAddress', [UserController::class,'newAddress']);
+Route::post('/OrderThat/public/newAddressRequest', [UserController::class,'newAddressRequest']);
 
 
 // Ruta para cerrar sesion
