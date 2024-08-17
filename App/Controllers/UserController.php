@@ -5,6 +5,8 @@ include "initSession.php";
 
 use App\Models\User;
 
+use App\Models\Address;
+
 class UserController extends Controller
 {
 
@@ -243,7 +245,45 @@ class UserController extends Controller
     }
 
     public function myAddress(){
-        return $this->view('myAddress');
+
+        $address = new Address();
+
+        $id_user = $_SESSION['id_user'];
+
+        $result = $address->where('fk_user', "$id_user")->get();
+
+        return $this->view('myAddress', compact('result'));
+    }
+
+    public function newAddress()
+    {
+        return $this->view('newAddress');
+    }
+
+    public function newAddressRequest()
+    {
+        $address = new Address();
+
+        $id_user = $_SESSION['id_user'];
+
+        $request = $_POST;
+
+        $request['fk_user'] = $id_user;
+
+        $validation = $address->create($request);
+
+        if ($validation)
+        {
+            header("Location: ../public/myAddress");
+
+            exit;
+        }
+        else
+        {
+            $_SESSION['error_message'] = "Error al crear registro";
+        }
+
+        return $this->view('newAddress');
     }
 
 }
