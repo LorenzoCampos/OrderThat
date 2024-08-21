@@ -20,7 +20,10 @@ Route::post('/OrderThat/public/createProductRequest', [HomeController::class,'cr
 Route::get('/OrderThat/public/editProduct/:id', [HomeController::class,'editProduct']);
 Route::post('/OrderThat/public/editProductRequest/:id', [HomeController::class,'editProductRequest']);
 
-// ------------------------------------------------------------------------------------------------------------------------------------------------------------
+// Rutas para el detalle del producto
+Route::get('/OrderThat/public/detailProduct/:id', [Homecontroller::class,'detailProduct']);
+
+//  -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 // Rutas para el Login
 Route::get('/OrderThat/public/login', [UserController::class,'login']);
@@ -39,6 +42,10 @@ Route::get('/OrderThat/public/changePassword', [UserController::class,'changePas
 Route::get('/OrderThat/public/myAddress', [UserController::class,'myAddress']);
 Route::get('/OrderThat/public/newAddress', [UserController::class,'newAddress']);
 Route::post('/OrderThat/public/newAddressRequest', [UserController::class,'newAddressRequest']);
+Route::get('/OrderThat/public/deleteAddress/:id', [UserController::class,'deleteAddress']);
+
+// Ruta para los metodos de pago
+Route::get('/OrderThat/public/myPaymentMethods', [UserController::class,'myPaymentMethods']);
 
 
 // Ruta para cerrar sesion
