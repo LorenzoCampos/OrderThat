@@ -8,11 +8,11 @@
 
 .title-container {
   text-align: center;
-  
+
 }
 
 .title-container__text {
-	color: var(--color-100);
+  color: var(--color-100);
   text-align: center;
   margin: 1em 0 .4em 0;
   text-transform: uppercase;
@@ -45,6 +45,7 @@
 
 .form-container__form__separator__input label {
   color: var(--color-100);
+  font-weight: bold;
 }
 
 .form-container__form__separator__input label span {
@@ -65,18 +66,20 @@
 }
 
 .form-container__form__separator__button {
-    transition: background-color 170ms;
-    background-color: var(--color-600);
-    width: 8em;
-    color: var(--color-100);
-    padding: .125em 1em;
-    height: 2.75em;
-    border-radius: 0.2em;
-    font-size: 1em;
-    line-height: 1.5em;
-    border: 0;
-    cursor: pointer;
-    
+  transition: background-color 170ms;
+  background-color: var(--color-600);
+  width: 8em;
+  color: var(--color-100);
+  padding: .125em 1em;
+  height: 2.75em;
+  border-radius: 0.2em;
+  font-size: 0.8em;
+  font-weight: bold;
+  line-height: 1.5em;
+  border: 0;
+  cursor: pointer;
+  text-transform: uppercase;
+
 }
 
 .form-container__form__separator__button:hover {
@@ -103,7 +106,7 @@
 
 
 .addresses-container__address {
-  padding: 2em;
+  padding: 0 2em 2em 2em;
   border-bottom: solid .3em var(--color-950);
 }
 

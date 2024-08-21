@@ -27,8 +27,8 @@ h4{
 }
 
 .form-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   place-self: center;
   align-items: center;
 
@@ -51,8 +51,8 @@ form {
 }
 
 form input {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-column: auto;
   align-items: center;
 
   text-decoration: none;
@@ -79,9 +79,8 @@ form input::placeholder {
 }
 
 .button-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  place-content: center;
 
   text-decoration: none;
 }
@@ -91,8 +90,15 @@ form input::placeholder {
 
   color: var(--color-200);
   background-color: var(--color-600);
+  max-width: min-content;
+  font-weight: bold;
+  text-transform: uppercase;
 
   cursor: pointer;
+}
+
+.button-modif:hover {
+  background-color: var(--color-500);
 }
 
 .link-container {
@@ -108,7 +114,7 @@ form input::placeholder {
   color: var(--color-100);
 }
 
-.link:hover{
+.link-text:hover{
   color: var(--color-50);
 }
 
