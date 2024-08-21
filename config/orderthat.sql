@@ -60,3 +60,11 @@ CREATE TABLE orders_details (
     FOREIGN KEY (fk_product) REFERENCES products(id),
     FOREIGN KEY (fk_order) REFERENCES orders(id)
 );
+
+-- Tabla de ingredientes
+CREATE TABLE ingredients (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_product INT,
+    ingredient INT,
+    FOREIGN KEY (fk_product) REFERENCES products(id),
+);
