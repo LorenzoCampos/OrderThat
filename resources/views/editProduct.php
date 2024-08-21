@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Product</title>
 </head>
 
 <body>
@@ -34,39 +34,30 @@
 		</div>
 
 		<div class='form-modify_submit'>
-			<button type='submit'>Modificar Producto</button>
+			<input type='submit' value="Modificar Producto" id="buttonEditProduct">
 		</div>
 
 	</form>
 
 
+	<form action="../editProductIngredients/<?= $request['id'] ?>">
 
-<!-- <form method="post" action="log_in.php">
+		<?php
+			foreach ($request['ingredients'] as $ingredient) {}
+		?>
+			<div class='form-modify_item'>
+				<label for='ingredient'>Ingrediente<span>*</span></label>
+				<input type='text' name='ingredient' value='<?= $ingredient ?>'>
+			</div>
 
-    <div class="form-users_item email">
-    
-        <label for="email">Email<span>*</span></label>
-        
-        <input type="email" name="email" id="email" required>
 
-    </div>
+		<div class='form-modify_item'>
+			<label for='ingredients'>Ingredientes<span>*</span></label>
+			<input type='text' name='ingredients' value='<?= $request['ingredients'] ?>' required>
 
-    <div class="form-users_item password">
+		<input type="submit" value="Añadir ingredientes">
 
-        <label for="password">Password<span>*</span></label>
-
-        <input type="password" name="password" id="password" value="" required>
-
-    </div>
-
-    <div class="form-users_submit">
-
-        <button type="submit" name="submit">Sing Up</button>
-
-    </div>
-
-</form> -->
-
+	</form>
 </body>
 
 </html>

@@ -39,6 +39,8 @@
 
 </form>
 
+<script src="../resources/static/js/productAlerts.js"></script>
+
 </body>
 
 </html>

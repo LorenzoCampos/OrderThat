@@ -13,6 +13,7 @@ include "partials/initSession.php";
   <link rel="icon" href="../resources/static/img/Logo/rub-white.png">
   <link rel="stylesheet" href="../resources/static/css/main.css">
   <link rel="stylesheet" href="../resources/static/css/address.css">
+  <link rel="stylesheet" href="../resources/static/css/dropdownMenu.css">
 </head>
 
 <?php
@@ -41,7 +42,17 @@ include "partials/subNav.php";
     foreach ($result as $key => $value) {
 
 ?>
+  <div class="menu-container">
 
+  <button class="menu-button"> ⋮ </button>
+
+    <div class="dropdown">
+      <a href="#">Editar</a>
+      <a href="#" onclick="deleteAddress(<?= $value['id'] ?>)">Borrar</a>
+    </div>
+
+  </div>
+  
 	<div class="addresses-container__address">
 
     <h3 class="addresses-container__address__text">
@@ -83,6 +94,7 @@ include "partials/subNav.php";
 
 </body>
 
-<script src="../resources/static/js/alerts.js"></script>
+<script src="../resources/static/js/dropdownMenu.js"></script>
+<script src="../resources/static/js/addressAlerts.js"></script>
 
 </html>

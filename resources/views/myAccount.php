@@ -82,7 +82,8 @@ if (isset($requestPassword)) {
 }
 ?>
 
-<script src="../resources/static/js/alerts.js"></script>
+<script src="../resources/static/js/accountAlerts.js"></script>
+
 
 </body>
 

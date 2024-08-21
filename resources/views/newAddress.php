@@ -29,7 +29,7 @@ include "partials/subNav.php";
 
 <div class="title-container">
 	<h1 class="title-container__text">
-    Nueva Direccion
+    Nueva Dirección
 	</h1>
 </div>
 
@@ -66,12 +66,6 @@ include "partials/subNav.php";
     </div>
 
     <div class="form-container__form__separator">
-      <h3 class="form-container__form__separator__text">
-        Entre que calles esta? (opcional)
-      </h3>
-    </div>
-
-    <div class="form-container__form__separator">
 
       <div class="form-container__form__separator__input">
         <label for="street1">Calle 1</label>
@@ -87,7 +81,7 @@ include "partials/subNav.php";
 
     <div class="form-container__form__separator">
       <button class="form-container__form__separator__button" type="submit">
-        Crear
+        Agregar
       </button>
     </div>
 

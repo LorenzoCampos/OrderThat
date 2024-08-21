@@ -36,7 +36,7 @@ include "partials/nav.php";
 			
 				<div class='product-item-container'>
 
-					<a class='link-container' href='#'>
+					<a class='link-container' href='../public/detailproduct/<?= $value['id'] ?>'>
 						<div class='img-container'>
 
 							<img src="<?= $value['image_path'] ?>">
