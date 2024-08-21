@@ -1,0 +1,53 @@
+/* Boton Menú */
+
+.menu-container {
+  display: flex;
+  justify-content: end;
+  position: relative;
+  padding: 5px 10px 0px 0px;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.menu-button:hover {  
+  outline: none;
+}
+
+/* Menú desplegable */
+
+.dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--color-600);
+  top: 30px;
+  right: 20px;
+  min-width: 150px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: .3em 0em .3em .3em;
+  /* z-index: 1; */
+}
+
+.dropdown a {
+  color: var(--color-50);
+  padding: 10px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+}
+
+.dropdown a:hover {
+  background-color: var(--color-500);
+  border-radius: .3em 0em .3em .3em;
+}
+
+.menu-container.show .dropdown {
+  display: block;
+}
