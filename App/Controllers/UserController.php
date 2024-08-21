@@ -286,4 +286,28 @@ class UserController extends Controller
         return $this->view('newAddress');
     }
 
+    public function deleteAddress($id)
+    {
+        $address = new Address();
+
+        $validation = $address->delete($id);
+
+        if (!$validation)
+        {
+            $_SESSION['error_message'] = "Error al borrar registro";
+        }
+        
+        header("Location: ../myAddress");
+
+        exit;
+    }
+
+
+    public function myPaymentMethods()
+    {
+
+
+        return $this->view('myPaymentMethods');
+    }
+
 }
