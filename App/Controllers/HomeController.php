@@ -23,6 +23,18 @@ class HomeController extends Controller
         return $this->view('indexTest');
     }
 
+    // Traer los detalles del producto
+    public function detailProduct($id)
+    {
+        $products = new Product();
+
+        $request = $products->find($id);
+
+        return $this->view('detailProduct', compact('request'));
+    }
+
+
+    // controller para la vista crear un nuevo proyecto
     public function createProduct()
     {
         // Retornar el View createProduct
@@ -102,6 +114,6 @@ class HomeController extends Controller
         $products->update("$id", $request);
 
         // 
-        return header("Location: ../");
+        header("Location: ../editProduct/$id");
     }
 }
