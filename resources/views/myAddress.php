@@ -47,7 +47,8 @@ include "partials/subNav.php";
   <button class="menu-button"> ⋮ </button>
 
     <div class="dropdown">
-      <a href="#">Editar</a>
+      <a href="../public/editAddress<?= $value['id'] ?>">Editar</a>
+
       <a href="#" onclick="deleteAddress(<?= $value['id'] ?>)">Borrar</a>
     </div>
 
@@ -80,9 +81,9 @@ include "partials/subNav.php";
 
     <a href="../public/newAddress">
 
-        <h3 class="addresses-container__add-address__button__text">
-          <b>Agregar Direccion</b>
-        </h3>
+      <h3 class="addresses-container__add-address__button__text">
+        <b>Agregar Dirección</b>
+      </h3>
 
     </a>
 
