@@ -32,7 +32,7 @@ include "partials/nav.php";
 	</h1>
 </div>
 
-<form class="edit-product-form" method='post' action='../public/createProductRequest' enctype='multipart/form-data'>
+<form class="edit-product-form" method='post' action='../public/editProductRequest<?= $request["id"] ?>' enctype='multipart/form-data'>
 
 	<div class="edit-product-form__main">
 
@@ -70,7 +70,7 @@ include "partials/nav.php";
 
 		<div class="edit-product-form__main__item-form">
 			<button class="edit-product-form__main__item-form__btn-submit" type="submit">
-				Crear
+				Modificar
 			</button>
 		</div>
 
@@ -84,13 +84,18 @@ include "partials/nav.php";
 		<?php
 
         if ($request["ingredients"]){
-            $counter = 0;
 
-		?>
-        
-    
-    
+			foreach ($request["ingredients"] as $key => $value) {
+
+		?>	
+
+		<div class="edit-product-form__ingredients__ingredient-container__item-form">
+			<label for="input-ingredient">Ingrediente</label>
+			<input type="text" id="input-ingredient" name="ingredient-<?= $value['id'] ?>" value="<?= $value['ingredient'] ?>" required">
+		</div>
+
         <?php
+			}
         }
         ?>
         </div>

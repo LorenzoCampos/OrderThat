@@ -4,6 +4,7 @@ namespace App\Controllers;
 include "initSession.php";
 
 use App\Models\Product;
+use App\Models\Ingredient;
 
 class HomeController extends Controller
 {
@@ -78,11 +79,19 @@ class HomeController extends Controller
     // Controller para editar un producto
     public function editProduct($id){
 
-        $products = new Product();
+        $product = new Product();
 
-        $request = $products->find($id);
+        $requestProduct = $product->find($id);
 
-        return $this->view('editProduct', compact('request'));
+        $ingredient = new Ingredient();
+
+        $ingredientForProduct = $ingredient->where("fk_product", "$id")->get();
+
+        $request = array_merge($requestProduct, $ingredientForProduct);
+
+        echo var_dump($request);
+
+        // return $this->view('editProduct', compact('request'));
     }
 
     // Controller para editar un producto
