@@ -37,6 +37,8 @@ class UserController extends Controller
             {
                 $_SESSION['id_user'] = $validation_user['id'];
 
+                $_SESSION['type'] = $validation_user['type'];
+
                 if ($_SESSION['id_user'])
                 {
                     $_SESSION['message'] = "Sesión iniciada";
@@ -302,6 +304,36 @@ class UserController extends Controller
         exit;
     }
 
+    public function editAddress($id)
+    {
+        $address = new Address();
+
+        $request = $address->find($id);
+
+        return $this->view('editAddress', compact('request'));
+    }
+
+    public function editAddressRequest($id)
+    {
+        $request = $_POST;
+
+        $address = new Address();
+
+        $validation = $address->update($id, $request);
+
+        if ($validation)
+        {
+            header("Location: ../public/myAddress");
+
+            exit;
+        }
+
+        $_SESSION['error_message'] = "Error al actualizar registro";
+
+        header("Location: ../public/editAddress$id");
+
+        exit;
+    }
 
     public function myPaymentMethods()
     {
