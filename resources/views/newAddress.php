@@ -64,6 +64,12 @@ include "partials/subNav.php";
       </div>
 
     </div>
+    
+    <div class="form-container__form__separator">
+      <div class="form-container__form__separator__input">
+        <label>Entre que calles esta? (opcional)</label>
+      </div>
+    </div>
 
     <div class="form-container__form__separator">
 
@@ -79,6 +85,13 @@ include "partials/subNav.php";
 
     </div>
 
+    <div class="form-container__form__separator">
+      <div class="form-container__form__separator__text-area">
+        <label for="indications">Indicaciones adicionales de esta direccion (opcional)</label>
+        <textarea id="indications" cols="30" rows="5" name="indications"></textarea>
+      </div>
+    </div>
+    
     <div class="form-container__form__separator">
       <button class="form-container__form__separator__button" type="submit">
         Agregar

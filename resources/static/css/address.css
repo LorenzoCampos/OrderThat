@@ -65,6 +65,34 @@
   font-size: 1em;
 }
 
+/* text-area */
+
+.form-container__form__separator__text-area {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: .2em;
+}
+
+.form-container__form__separator__text-area label {
+  color: var(--color-100);
+  font-weight: bold;
+}
+
+.form-container__form__separator__text-area textarea {
+  transition: outline 140ms;
+  color: var(--color-100);
+  background-color: var(--color-500);
+  padding: .625em;
+  border-radius: 0.2em;
+  outline: none;
+  border: 0;
+  text-decoration: none;
+  font-size: 1em;
+}
+
+/* END text-area */
+
 .form-container__form__separator__button {
   transition: background-color 170ms;
   background-color: var(--color-600);
