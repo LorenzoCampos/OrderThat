@@ -16,6 +16,6 @@ TO DO LIST:
 
 - VIEW Y BACKEND PEDIDOS, HISTORIAL DE PEDIDOS (DISEÑO A DEBATIR)
 
-- AGREGAR EN NEVA DIRECCION UN "label" ARRIBA DE LOS CAMPOS "Calle 1" Y "Calle 2" QUE DIGA "Entre que calles esta? (opcional)"
+- AGREGAR EN VIEW "newAddress" UN "label" ARRIBA DE LOS CAMPOS "Calle 1" Y "Calle 2" QUE DIGA "Entre que calles esta? (opcional)"
 
-- AGREAR EN NEEVA DIRECCION UN NUEVO CAMPO AL FINAL QUE DIGA "Indicaciones adicionales de esta direccion (opcional)"
+- AGREAR EN VIEW "newAddress" UN NUEVO CAMPO DE TIPO "textarea" AL FINAL DE LOS INPUTS QUE TENGA UN "label" QUE DIGA "Indicaciones adicionales de esta direccion (opcional)"
