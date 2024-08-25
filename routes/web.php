@@ -41,6 +41,8 @@ Route::get('/OrderThat/public/changePassword', [UserController::class,'changePas
 // Ruta para la lista de direcciones
 Route::get('/OrderThat/public/myAddress', [UserController::class,'myAddress']);
 Route::get('/OrderThat/public/newAddress', [UserController::class,'newAddress']);
+Route::get('/OrderThat/public/editAddress:id', [UserController::class,'editAddress']);
+Route::post('/OrderThat/public/editAddressRequest:id', [UserController::class,'editAddressRequest']);
 Route::post('/OrderThat/public/newAddressRequest', [UserController::class,'newAddressRequest']);
 Route::get('/OrderThat/public/deleteAddress/:id', [UserController::class,'deleteAddress']);
 
