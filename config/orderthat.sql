@@ -45,6 +45,7 @@ CREATE TABLE orders (
 -- Tabla de productos
 CREATE TABLE products (
     id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255),
     description VARCHAR(255),
     image_path VARCHAR(1000),
     price FLOAT,
@@ -66,5 +67,5 @@ CREATE TABLE ingredients (
     id INT PRIMARY KEY AUTO_INCREMENT,
     fk_product INT,
     ingredient INT,
-    FOREIGN KEY (fk_product) REFERENCES products(id),
+    FOREIGN KEY (fk_product) REFERENCES products(id)
 );
