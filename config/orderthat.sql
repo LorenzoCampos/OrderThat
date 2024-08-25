@@ -19,6 +19,7 @@ CREATE TABLE addresses (
     floor INT,
     street1 VARCHAR(255),
     street2 VARCHAR(255),
+    description TEXT,
     FOREIGN KEY (fk_user) REFERENCES users(id)
 );
 
@@ -66,6 +67,6 @@ CREATE TABLE orders_details (
 CREATE TABLE ingredients (
     id INT PRIMARY KEY AUTO_INCREMENT,
     fk_product INT,
-    ingredient INT,
+    ingredient VARCHAR(255),
     FOREIGN KEY (fk_product) REFERENCES products(id)
 );
