@@ -49,21 +49,32 @@ include "partials/nav.php";
 
 							<span><b><?= $value['name'] ?></b></span>
 
-							<span><b>Precio: $<?= $value['price'] ?></b></span>
+							<span><b>Precio: $<?= $value['price'] ?></b></span><?php
 
-							<a class="link" href="../public/editProduct<?= $value['id'] ?>">
+							if (isset($_SESSION['type'])){
+								if ($_SESSION['type'] == "admin") {
+
+							?><a class="link" href="../public/editProduct<?= $value['id'] ?>">
 								<div class='product-description-btn'>
 									<span>Modificar</span>
 								</div>
-							</a>
+							</a><?php
 
-						</div>
+								}
+							}
+
+						?></div>
 					</div>
 				</div>
 			</div>
 
 		<?php
 		}
+
+		if (isset($_SESSION['type'])){
+
+			if ($_SESSION['type'] == "admin") {
+
 		?>
 			<div class='product'>
 			<a href="../public/createProduct">
@@ -80,7 +91,10 @@ include "partials/nav.php";
 				</div>
 			</a>
 			</div>
-
+		<?php
+			}
+		}
+		?>
 	</div>
 
 	<script src="../resources/static/js/darkMode.js"></script>
