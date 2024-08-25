@@ -114,6 +114,8 @@ class HomeController extends Controller
         $products->update("$id", $request);
 
         // 
-        header("Location: ../editProduct/$id");
+        header("Location: ../public");
+
+        exit;
     }
 }
