@@ -15,7 +15,8 @@ body {
 }
 
 :root {
-	--color-50: #f2f9f9;
+	
+/* 	--color-50: #f2f9f9;
 	--color-100: #ddeff0;
 	--color-200: #bfe0e2;
 	--color-300: #92cace;
@@ -25,7 +26,29 @@ body {
 	--color-700: #356169;
 	--color-800: #325158;
 	--color-900: #2d464c;
-	--color-950: #1a2c32;
+	--color-950: #1a2c32; */
+
+	--color-50: #F6F6F6;
+	--color-100: #E7E7E7;
+	--color-200: #D1D1D1;
+	--color-300: #B0B0B0;
+	--color-400: #888880;
+	--color-500: #6D6D6D;
+	--color-600: #5D5D5D;
+	--color-700: #4F4F4F;
+	--color-800: #454545;
+	--color-900: #3D3D3D;
+	--color-950: #222222;
+
+
+	/* --color-text: #f3f8f7;
+    --color-background: #0e0e11;
+    --color-background-form: #1e2e2e;
+    --color-text-button: #ffffff;
+    --color-button-default: #4a7d7a;
+    --color-button-hover: #416b69;
+    --color-input-focus: #467472;
+    --color-error: #ff5757; */
 
 	/* Font Permanent Marker */
 
