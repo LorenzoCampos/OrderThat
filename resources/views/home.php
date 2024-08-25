@@ -36,7 +36,7 @@ include "partials/nav.php";
 			
 				<div class='product-item-container'>
 
-					<a class='link-container' href='../public/detailproduct/<?= $value['id'] ?>'>
+					<a class='link-container' href="#">
 						<div class='img-container'>
 
 							<img src="<?= $value['image_path'] ?>">
@@ -47,30 +47,15 @@ include "partials/nav.php";
 					<div class='product-description-container'>
 						<div class='product-description'>
 
-							<span><b><?= $value['description'] ?></b></span>
+							<span><b><?= $value['name'] ?></b></span>
 
 							<span><b>Precio: $<?= $value['price'] ?></b></span>
 
-							<a class="link" href="../public/editProduct/<?= $value['id'] ?>">
+							<a class="link" href="../public/editProduct<?= $value['id'] ?>">
 								<div class='product-description-btn'>
 									<span>Modificar</span>
 								</div>
 							</a>
-							<!--
-
-                // Permisos de Administrador
-
-                <a href='../public/'>
-                    <div class='item__description-btn'>
-                        <span>Modificar</span>
-                    </div>
-                </a>
-
-                <a href='products.php?id=$row[0]'>
-                    <div class='item__description-btn'>
-                        <span>Borrar</span>
-                    </div>
-                </a> -->
 
 						</div>
 					</div>
@@ -80,6 +65,21 @@ include "partials/nav.php";
 		<?php
 		}
 		?>
+			<div class='product'>
+			<a href="../public/createProduct">
+				<div class="container">
+
+					<div class="container__container">
+
+						<div class="container__container__1"></div>
+
+						<div class="container__container__2"></div>
+
+					</div>
+
+				</div>
+			</a>
+			</div>
 
 	</div>
 
