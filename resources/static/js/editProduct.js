@@ -15,33 +15,41 @@ file.addEventListener( 'change', e => {
   }
 });
 
-const addInput = document.getElementById( 'add-input' );
-const divIngredient = document.getElementById( 'div-ingredient' );
+const ADD_INPUT = document.getElementById( 'add-input' );
+const DIV_INGREDIENT = document.getElementById( 'div-ingredient' );
 
 let counter = 0;
 
-addInput.addEventListener('click', function() {
+ADD_INPUT.addEventListener('click', function() {
 
   counter++;
 
-  const newDiv = document.createElement('div');
+  const NEW_DIV = document.createElement('div');
 
-  newDiv.setAttribute('class', 'edit-product-form__ingredients__ingredient-container__item-form');
-  newDiv.setAttribute('id', 'div-ingredient');
+  NEW_DIV.setAttribute('class', 'edit-product-form__ingredients__ingredient-container__item-form');
+  NEW_DIV.setAttribute('id', 'div-ingredient');
 
-  const newLabel = document.createElement('label');
+  const NEW_LABEL = document.createElement('label');
 
-  newLabel.setAttribute('for', 'input-ingredient');
-  newLabel.textContent = 'Ingrediente';
+  NEW_LABEL.setAttribute('for', 'input-ingredient');
+  NEW_LABEL.textContent = 'Nuevo Ingrediente ' + counter;
 
-  const newInput = document.createElement('input');
+  const NEW_INPUT = document.createElement('input');
 
-  newInput.setAttribute('type', 'text');
-  newInput.setAttribute('name', 'new-ingredient-' + counter);
-  newInput.setAttribute('id', 'input-ingredient');
+  NEW_INPUT.setAttribute('type', 'text');
+  NEW_INPUT.setAttribute('name', 'new-ingredient-' + counter);
+  NEW_INPUT.setAttribute('id', 'input-ingredient');
 
-  newDiv.appendChild(newLabel);
-  newDiv.appendChild(newInput);
+  NEW_DIV.appendChild(NEW_LABEL);
+  NEW_DIV.appendChild(NEW_INPUT);
 
-  divIngredient.appendChild(newDiv);
+  DIV_INGREDIENT.appendChild(NEW_DIV);
+});
+
+
+
+document.getElementById("buttonModifProduct").addEventListener("click", function() {
+  alert("Se ha modificado el producto.");
+
+  window.location.href = "../public/";
 });
