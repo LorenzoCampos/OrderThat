@@ -1,63 +1,114 @@
+<?php
+
+include "partials/initSession.php";
+
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inicio</title>
+	<link rel="icon" href="../resources/static/img/Logo/rub-white.png">
+	<link rel="stylesheet" href="../resources/static/css/main.css">
+	<link rel="stylesheet" href="../resources/static/css/editProduct.css">
 </head>
+
+<?php
+
+include "partials/nav.php";
+
+?>
 
 <body>
 
-<h1>Modificar Producto</h1>
+<main class="main-edit-product">
 
-	<form method='post' action='../editProductRequest/<?= $request['id'] ?>' enctype='multipart/form-data'>
+<div class="title-container">
+	<h1 class="title-container__text">
+    Modificar Producto
+	</h1>
+</div>
 
-		<div class='form-modify_item'>
-			<label for='image'>Imagen<span>*</span></label>
-			<input class='image' type='file' name='image'>
+<form class="edit-product-form" method='post' action='../public/createProductRequest' enctype='multipart/form-data'>
+
+	<div class="edit-product-form__main">
+
+		<div class="edit-product-form__main__image-form">
+			<div class="edit-product-form__main__image-form__image-container">
+				<img id="preview-image" src="<?= $request['image_path'] ?>" alt="imagen del producto">
+			</div>
+			<input type="file" name="image" id="image" hidden required>
+			<label for="image">Cambiar foto</label>
 		</div>
 
-		<div class='form-modify_item'>
-			<label>Descripcion<span>*</span></label>
-			<input type='text' name='description' value='<?= $request['description'] ?>' required>
+		<div class="edit-product-form__main__item-form">
+			<label for="name">Nombre del Producto</label>
+			<input type="text" name="name" id="name" value="<?= $request['name'] ?>" required>
 		</div>
 
-		<div class='form-modify_item'>
-			<label for='price'>Precio<span>*</span></label>
-			<input type='number' step='0.01' name='price' value='<?= $request['price'] ?>' required>
-		</div>
+		<div class="edit-product-form__main__pl">
 
-		<div class='form-modify_item'>
-			<label for='stock'>stock<span>*</span></label>
-			<input type='number' name='stock' value='<?= $request['stock'] ?>' required>
-		</div>
-
-		<div class='form-modify_submit'>
-			<input type='submit' value="Modificar Producto" id="buttonEditProduct">
-		</div>
-
-	</form>
-
-
-	<form action="../editProductIngredients/<?= $request['id'] ?>">
-
-		<?php
-			foreach ($request['ingredients'] as $ingredient) {}
-		?>
-			<div class='form-modify_item'>
-				<label for='ingredient'>Ingrediente<span>*</span></label>
-				<input type='text' name='ingredient' value='<?= $ingredient ?>'>
+			<div class="edit-product-form__main__item-form">
+				<label for="price">Precio</label>
+				<input type="number" step="0.01" name="price" id="price" value="<?= $request['price'] ?>" required>
 			</div>
 
+			<div class="edit-product-form__main__item-form">
+				<label for="stock">Stock</label>
+				<input type="number" name="stock" id="stock" value="<?= $request['stock'] ?>" required>
+			</div>
 
-		<div class='form-modify_item'>
-			<label for='ingredients'>Ingredientes<span>*</span></label>
-			<input type='text' name='ingredients' value='<?= $request['ingredients'] ?>' required>
+		</div>
 
-		<input type="submit" value="Añadir ingredientes">
+		<div class="edit-product-form__main__item-form">
+			<label for="description">Descripcion</label>
+			<input type="text" name="description" id="description" value="<?= $request['description'] ?>" required>
+		</div>
 
-	</form>
+		<div class="edit-product-form__main__item-form">
+			<button class="edit-product-form__main__item-form__btn-submit" type="submit">
+				Crear
+			</button>
+		</div>
+
+	</div>
+
+<!-- ---------------------------------------------------------- -->
+
+	<div class="edit-product-form__ingredients">
+
+        <div id="div-ingredient" class="edit-product-form__ingredients__ingredient-container">
+		<?php
+
+        if ($request["ingredients"]){
+            $counter = 0;
+
+		?>
+        
+    
+    
+        <?php
+        }
+        ?>
+        </div>
+
+		<div class="edit-product-form__ingredients__add-button">
+
+			<button class="edit-product-form__ingredients__add-button__btn" id="add-input">Agregar Ingredientete</button>
+
+		</div>
+
+	</div>
+
+</form>
+
+</main>
+
+<script src="../resources/static/js/editProduct.js"></script>
+
 </body>
 
 </html>
