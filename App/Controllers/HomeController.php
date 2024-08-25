@@ -87,11 +87,9 @@ class HomeController extends Controller
 
         $ingredientForProduct = $ingredient->where("fk_product", "$id")->get();
 
-        $request = array_merge($requestProduct, $ingredientForProduct);
+        $request = compact('requestProduct', 'ingredientForProduct');
 
-        echo var_dump($request);
-
-        // return $this->view('editProduct', compact('request'));
+        return $this->view('editProduct', compact('request'));
     }
 
     // Controller para editar un producto
@@ -99,32 +97,38 @@ class HomeController extends Controller
         
         $products = new Product();
 
-        // Recibir todos los datos del formulario
         $request = $_POST;
 
-        // Obtener el nombre de la imagen
-        $p_archive_name = $_FILES['image']['name'];
-        // Obtener el archivo temporal
-        $p_archive = $_FILES['image']['tmp_name'];
+        // $oldProduct = $products->find($id);
 
-		// este es el path donde guarda la imagen
-		$image_path = "../resources/static/img/$p_archive_name";
+        // // Obtener el nombre de la imagen
+        // $p_archive_name = $_FILES['image']['name'];
+        // // Obtener el archivo temporal
+        // $p_archive = $_FILES['image']['tmp_name'];
+
+		// // este es el path donde guarda la imagen
+		// $image_path = "../resources/static/img/$p_archive_name";
         
-		// este es el path donde la base de datos va a buscar la imagen
-		$image_path_db = "../resources/static/img/$p_archive_name";
+		// // este es el path donde la base de datos va a buscar la imagen
+		// $image_path_db = "../resources/static/img/$p_archive_name";
 
-        // Muevo la imagen recuperada para guardarla en el servidor
-        $request['image_path'] = $image_path_db;
+        // if ($image_path_db != $oldProduct['image_path']) {
+        //     // Muevo la imagen recuperada para guardarla en el servidor
+        //     $request['image_path'] = $image_path_db;
 
-        // Muevo la imagen recuperada para guardarla en el servidor
-        move_uploaded_file($p_archive, $image_path);
+        //     // Muevo la imagen recuperada para guardarla en el servidor
+        //     move_uploaded_file($p_archive, $image_path);
+        // } else {
+        //     unset($request['image_path']);
+        // }
+        
 
-        // Llamar al model para editar registro
-        $products->update("$id", $request);
+        // // Llamar al model para editar registro
+        // $products->update("$id", $request);
 
-        // 
-        header("Location: ../public");
+        // // 
+        // header("Location: ../public");
 
-        exit;
+        // exit;
     }
 }
