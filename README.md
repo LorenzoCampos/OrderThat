@@ -5,17 +5,22 @@ TO DO LIST:
 - VIEW Y BACKEND DE MI-CUENTA (USUARIO)
   - DATOS PERSONALES (realizado)
   - DIRECCIONES (realizado)
-  - METODOS DE PAGO 
   - HISTORIAL DE PEDIDOS
 
-- PERMISOS DE ADMINISTRADOR
+- PERMISOS DE ADMINISTRADOR (en proceso)
 
 - VIEW Y BACKEND DEL PRODUCTO (DESCRIPCION)
+  - EDIT (funcional)
+  - CREATE (funcional)
+  - DELETE
+  - SEARCH DETAIL PRODUCT
 
 - VIEW Y BACKEND CARRITO DE COMPRA (DISEÑO A DEBATIR)
 
 - VIEW Y BACKEND PEDIDOS, HISTORIAL DE PEDIDOS (DISEÑO A DEBATIR)
+  - TEXT AREA DE MI ORDEN. EJ; "Sin cebolla, Con cebolla, etc"
 
-- AGREGAR EN VIEW "newAddress" UN "label" ARRIBA DE LOS CAMPOS "Calle 1" Y "Calle 2" QUE DIGA "Entre que calles esta? (opcional)"
+------------------------------------------------------------
 
-- AGREAR EN VIEW "newAddress" UN NUEVO CAMPO DE TIPO "textarea" AL FINAL DE LOS INPUTS QUE TENGA UN "label" QUE DIGA "Indicaciones adicionales de esta direccion (opcional)"
+- MERCADO PAGO API (FINAL)
+  - METODOS DE PAGO
