@@ -91,11 +91,11 @@ body h1 {
 	background-color: var(--color-500);
 }
 
-.link{
+.link {
 	text-decoration: none;
 }
 
-.link:visited{
+.link:visited {
 	text-decoration: none;
 	color: var(--color-50);
 }
@@ -106,41 +106,41 @@ body h1 {
 
 .container {
 	transition: background-color 170ms;
-    height:100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	border-radius: .4em;
 }
 
 .container:hover {
-    background-color: var(--color-600);
+	background-color: var(--color-600);
 }
 
 .container__container {
-    background-color: #356169;
-    height: 100px;
-    width: 100px;
-    border-radius: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	background-color: var(--color-400);
+	height: 100px;
+	width: 100px;
+	border-radius: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .container__container__1 {
-    background-color: #5faab1;
-    position: absolute;
-    z-index: 1;
-    width: 85px;
-    height: 8px;
+	background-color: var(--color-500);
+	position: absolute;
+	z-index: 1;
+	width: 85px;
+	height: 8px;
 
 }
 
 .container__container__2 {
-    width: 8px;
-    position: absolute;
-    z-index: 2;
-    height: 85px;
-    background-color: #5faab1;
+	width: 8px;
+	position: absolute;
+	z-index: 2;
+	height: 85px;
+	background-color: var(--color-500);
 }
