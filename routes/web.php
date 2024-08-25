@@ -17,8 +17,8 @@ Route::get('/OrderThat/public/createProduct', [HomeController::class,'createProd
 Route::post('/OrderThat/public/createProductRequest', [HomeController::class,'createProductRequest']);
 
 // Rutas para la modificacion del producto
-Route::get('/OrderThat/public/editProduct/:id', [HomeController::class,'editProduct']);
-Route::post('/OrderThat/public/editProductRequest/:id', [HomeController::class,'editProductRequest']);
+Route::get('/OrderThat/public/editProduct:id', [HomeController::class,'editProduct']);
+Route::post('/OrderThat/public/editProductRequest:id', [HomeController::class,'editProductRequest']);
 
 // Rutas para el detalle del producto
 Route::get('/OrderThat/public/detailProduct/:id', [Homecontroller::class,'detailProduct']);
