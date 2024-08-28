@@ -1,13 +1,15 @@
 /* Form settings */
-
-body{
+/* NO SE TOCA MÁSSSSSSSSSSSSSSSSSSSSSSS! */
+.global-container{
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-body h1 {
+.global-container h1 {
 	color: var(--color-100);
-	text-align: center;
+	text-align: center; 
 	margin: 1em 0 .4em 0;
   text-transform: uppercase;
 }
@@ -27,9 +29,9 @@ h4{
 }
 
 .form-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  place-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 
   max-width: max-content;
@@ -51,10 +53,6 @@ form {
 }
 
 form input {
-  display: grid;
-  grid-column: auto;
-  align-items: center;
-
   text-decoration: none;
   color: var(--color-100);
 
@@ -76,6 +74,30 @@ form input {
 
 form input::placeholder {
   color: var(--color--200);
+}
+
+@media (max-width: 600px) {
+
+  .form-container {
+    max-width: max-content;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  form input {
+    width: 100%;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .button-modif {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .link-text {
+    font-size: 14px;
+  }
 }
 
 .button-container {
