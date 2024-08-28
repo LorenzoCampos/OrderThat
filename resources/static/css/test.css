@@ -1,0 +1,233 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+	/* background-size: cover; */
+	background-color: var(--color-950);
+	height: 100%;
+}
+
+:root {
+	
+/* 	--color-50: #f2f9f9;
+	--color-100: #ddeff0;
+	--color-200: #bfe0e2;
+	--color-300: #92cace;
+	--color-400: #5faab1;
+	--color-500: #438e96;
+	--color-600: #3b757f;
+	--color-700: #356169;
+	--color-800: #325158;
+	--color-900: #2d464c;
+	--color-950: #1a2c32; */
+
+	--color-50: #F6F6F6;
+	--color-100: #E7E7E7;
+	--color-200: #D1D1D1;
+	--color-300: #B0B0B0;
+	--color-400: #888880;
+	--color-500: #6D6D6D;
+	--color-600: #5D5D5D;
+	--color-700: #4F4F4F;
+	--color-800: #454545;
+	--color-900: #3D3D3D;
+	--color-950: #222222;
+	--color-1000: #000000;
+
+
+	/* --color-text: #f3f8f7;
+    --color-background: #0e0e11;
+    --color-background-form: #1e2e2e;
+    --color-text-button: #ffffff;
+    --color-button-default: #4a7d7a;
+    --color-button-hover: #416b69;
+    --color-input-focus: #467472;
+    --color-error: #ff5757; */
+
+	/* Font Permanent Marker */
+
+	font-family: "Rubik Mono One", monospace;
+	font-weight: 400;
+	font-style: normal;
+
+}
+
+a {
+	outline: none;
+	text-decoration: none;
+}
+
+a:link {
+	color: var(--color-50);
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+
+/* ---------------------------------------------------------------------------------------- */
+
+
+/* Nav settings */
+
+.nav-container {
+	display: flex;
+	height: 100%;
+	background-color: var(--color-600);
+}
+
+.nav-item {
+	display: flex;
+	margin: .4em .75em;
+	margin-top: .4em;
+}
+
+.nav-item a b {
+	padding: .5em;
+	color: var(--color-100);
+	cursor: pointer;
+}
+
+.nav-item b:hover {
+	color: #ffffff;
+}
+
+.nav-item img {
+	width: 50px;
+	height: 50px;
+}
+
+.user-container__button img{
+	width: 50px;
+	height: 50px;
+}
+
+.nav-item__img:hover{
+	cursor: pointer;
+	scale: 1.1;
+	transition: .1s;
+}
+
+/* End Nav settings */
+
+/* ---------------------------------------------------------------------------------------- */
+
+/* Sub Nav settings */
+
+.sub-nav{
+	display: flex;
+	height: 5%;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+	background-color: var(--color-700);
+}
+
+.sub-nav__container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: .4em .75em;
+	margin-top: .4em;
+	text-transform: uppercase;
+	font-size: 1.2em;
+}
+
+.sub-nav__container__items {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  gap: 2em;
+}
+
+.sub-nav__container__items a p {
+  font-size: 24px;
+  color: var(--color-100);
+}
+
+.sub-nav__container__items a p:hover{
+	scale: 1.1;
+	transition: .1s;
+  font-size: 16px;
+  color: var(--color-50);
+}
+
+/* End Sub Nav settings */
+
+/* ---------------------------------------------------------------------------------------- */
+
+/* Boton Menú */
+
+.user-container {
+  display: flex;
+	justify-content: end;
+  position: relative;
+  padding: 5px 10px 0px 0px;
+}
+
+.user-container__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+
+}
+
+.user-container__button:hover {  
+  outline: none;
+
+	scale: 1.1;
+	transition: scale .1s;
+}
+
+/* Menú desplegable */
+
+.button-dropdown {
+  display: none;
+  position: absolute;
+  background-color: var(--color-700);
+  top: 55px;
+  left: 20px;
+  min-width: 150px;
+
+	border-radius: .1em;
+}
+
+.button-dropdown a {
+  display: flex;
+	justify-content: center;
+
+	padding: .3em;
+	font-size: .6em;
+	text-decoration: none;
+	text-transform: uppercase;
+	color: var(--color-50);
+}
+
+.button-dropdown a:hover {
+  background-color: var(--color-500);
+	border-radius: .1em;
+
+	scale: 1.1;
+	transition: scale .2s;
+}
+
+.user-container.show .button-dropdown {
+  display: block;
+}
+
+
