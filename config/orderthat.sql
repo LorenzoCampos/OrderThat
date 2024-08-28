@@ -70,3 +70,13 @@ CREATE TABLE ingredients (
     ingredient VARCHAR(255),
     FOREIGN KEY (fk_product) REFERENCES products(id)
 );
+
+-- Tabla del carrito
+CREATE TABLE carts (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    fk_user INT,
+    fk_product INT,
+    amount INT,
+    FOREIGN KEY (fk_product) REFERENCES products(id),
+    FOREIGN KEY (fk_user) REFERENCES users(id)
+);
