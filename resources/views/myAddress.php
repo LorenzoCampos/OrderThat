@@ -20,8 +20,6 @@ include "partials/initSession.php";
 
 include "partials/nav.php";
 
-include "partials/subNav.php";
-
 ?>
 
 <body>
@@ -44,15 +42,15 @@ include "partials/subNav.php";
 ?>
   <div class="menu-container">
 
-  <button class="menu-button"> ⋮ </button>
+    <button class="menu-button"> ⋮ </button>
 
-    <div class="dropdown">
-      <a href="../public/editAddress<?= $value['id'] ?>">Editar</a>
+      <div class="dropdown">
+        <a href="../public/editAddress<?= $value['id'] ?>">Editar</a>
 
-      <a href="#" onclick="deleteAddress(<?= $value['id'] ?>)">Borrar</a>
+        <a href="#" onclick="deleteAddress(<?= $value['id'] ?>)">Borrar</a>
+      </div>
+
     </div>
-
-  </div>
   
 	<div class="addresses-container__address">
 

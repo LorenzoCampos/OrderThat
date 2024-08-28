@@ -29,41 +29,52 @@ include "partials/nav.php";
 	<div class='products-container'>
 
 		<?php
-		foreach ($request as $key => $value) {
+
+			foreach ($request as $key => $value) {
+
 		?>
 
 			<div class='product'>
 			
-				<div class='product-item-container'>
+				<div class='product__item-container'>
 
 					<a class='link-container' href="#">
-						<div class='img-container'>
+						<div class='product__item-container__img'>
 
 							<img src="<?= $value['image_path'] ?>">
 
 						</div>
 					</a>
 					
-					<div class='product-description-container'>
-						<div class='product-description'>
+					<div class='product__description-container'>
+						<div class='product__description'>
 
-							<span><b><?= $value['name'] ?></b></span>
+							<span class="product__description-name"><b><?= $value['name'] ?></b></span>
 
-							<span><b>Precio: $<?= $value['price'] ?></b></span><?php
+							<span class="product__description-description"><?= $value['description'] ?></span>
 
+							<span class="product__description-price"><b>$<?= $value['price'] ?></b></span>
+
+							<a class="link" href="../public/addProductCart<?= $value['id'] ?>">
+								<div class='product__description-btn'>
+									<span>Agregar</span>
+								</div>
+							</a>
+							
+							<?php
 							if (isset($_SESSION['type'])){
 								if ($_SESSION['type'] == "admin") {
-
-							?><a class="link" href="../public/editProduct<?= $value['id'] ?>">
-								<div class='product-description-btn'>
+							?>
+							<a class="link" href="../public/editProduct<?= $value['id'] ?>">
+								<div class='product__description-btn'>
 									<span>Modificar</span>
 								</div>
-							</a><?php
-
+							</a>
+							<?php
 								}
 							}
-
-						?></div>
+							?>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -76,7 +87,7 @@ include "partials/nav.php";
 			if ($_SESSION['type'] == "admin") {
 
 		?>
-			<div class='product'>
+			<div class='product-add'>
 			<a href="../public/createProduct">
 				<div class="container">
 
@@ -96,8 +107,6 @@ include "partials/nav.php";
 		}
 		?>
 	</div>
-
-	<script src="../resources/static/js/darkMode.js"></script>
 
 </body>
 

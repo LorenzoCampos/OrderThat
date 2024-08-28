@@ -6,6 +6,7 @@
   <title>TEST</title>
   <link rel="stylesheet" href="../resources/static/css/dropdownMenu.css">
   <link rel="stylesheet" href="../resources/static/css/popupMenu.css">
+  <link rel="stylesheet" href="../resources/static/css/test.css">
 
 </head>
 <body>

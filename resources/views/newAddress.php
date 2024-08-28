@@ -19,8 +19,6 @@ include "partials/initSession.php";
 
 include "partials/nav.php";
 
-include "partials/subNav.php";
-
 ?>
 
 <body>
