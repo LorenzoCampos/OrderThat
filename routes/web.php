@@ -20,6 +20,11 @@ Route::post('/OrderThat/public/createProductRequest', [HomeController::class,'cr
 Route::get('/OrderThat/public/editProduct:id', [HomeController::class,'editProduct']);
 Route::post('/OrderThat/public/editProductRequest:id', [HomeController::class,'editProductRequest']);
 
+// Rutas para el carrito
+Route::get('/OrderThat/public/cart', [HomeController::class,'cart']);
+Route::post('/OrderThat/public/cartRequest', [HomeController::class,'cartRequest']);
+
+
 // Rutas para el detalle del producto
 Route::get('/OrderThat/public/detailProduct/:id', [Homecontroller::class,'detailProduct']);
 
