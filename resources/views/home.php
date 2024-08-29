@@ -55,7 +55,7 @@ include "partials/nav.php";
 
 							<span class="product__description-price"><b>$<?= $value['price'] ?></b></span>
 
-							<a class="link" href="../public/addProductCart<?= $value['id'] ?>">
+							<a class="link" href="../public/addCart<?= $value['id'] ?>">
 								<div class='product__description-btn'>
 									<span>Agregar</span>
 								</div>

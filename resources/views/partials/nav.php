@@ -26,7 +26,7 @@
         </div>
 
         <div class="nav-item">
-          <img class="nav-item__img" src="../resources/static/img/default/carrito.png" href="../">
+        <a href="../public/cart"><img class="nav-item__img" src="../resources/static/img/default/carrito.png"></a>
         </div>
 
       </div>

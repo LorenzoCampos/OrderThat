@@ -23,6 +23,7 @@ Route::post('/OrderThat/public/editProductRequest:id', [HomeController::class,'e
 // Rutas para el carrito
 Route::get('/OrderThat/public/cart', [HomeController::class,'cart']);
 Route::post('/OrderThat/public/cartRequest', [HomeController::class,'cartRequest']);
+Route::get('/OrderThat/public/addCart:id', [HomeController::class,'addCart']);
 
 
 // Rutas para el detalle del producto
