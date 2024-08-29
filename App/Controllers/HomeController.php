@@ -5,6 +5,7 @@ include "initSession.php";
 
 use App\Models\Product;
 use App\Models\Ingredient;
+use App\Models\Cart;
 
 class HomeController extends Controller
 {
@@ -130,5 +131,76 @@ class HomeController extends Controller
         // header("Location: ../public");
 
         // exit;
+    }
+
+    public function addCart($id)
+    {
+        $product = new Product();
+        
+        $cart = new Cart();
+        
+        $id_user = $_SESSION['id_user'];
+
+        $find_product = $cart->where("fk_product", "$id")->where("fk_user", "$id_user")->get();
+
+        if ($find_product)
+        {
+            header("Location: ../public/cart");
+
+            exit;
+        }
+        else
+        {
+            $add = $cart->create([
+                'fk_product' => $id,
+                'fk_user' => $id_user,
+                'amount' => 1
+            ]);
+
+            if ($add)
+            {
+                $_SESSION['message'] = "Agregado al carrito";
+            }
+            else
+            {
+                $_SESSION['message'] = "Error al agregar al carrito";
+            }
+
+            header("Location: ../public/cart");
+
+            exit;
+        }
+    }
+
+    public function cart()
+    {   
+        $product = new Product();
+
+        $cart = new Cart();
+
+        $id_user = $_SESSION['id_user'];
+
+        $cart_products = $cart->where("fk_user", "$id_user")->get();
+
+        $request = [];
+
+        foreach ($cart_products as $key => $value) {
+            $id_product = $value['fk_product'];
+
+            $product_foreach = $product->find($id_product);
+
+            $array_form = [
+                'id_product' => $product_foreach['id'],
+                'id_cart' => $value['id'],
+                'name' => $product_foreach['name'],
+                'image_path' => $product_foreach['image_path'],
+                'price' => $product_foreach['price'],
+                'amount' => $value['amount']
+            ];
+
+            array_push($request, $array_form);
+        }
+
+        return $this->view('cart', compact('request'));
     }
 }
