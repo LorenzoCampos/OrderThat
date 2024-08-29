@@ -35,7 +35,7 @@ include "partials/nav.php";
 	<div class="general-container__list-products">
 
 	<?php
-	foreach ($request["products"] as $key => $value) {
+	foreach ($request as $key => $value) {
 	?>
 
 		<div class="general-container__list-products__product">
@@ -50,21 +50,30 @@ include "partials/nav.php";
 				</div>
 
 				<div class="general-container__list-products__product__info-container__buttons">
-					<button href="../public/cartRequest:<?= $value["id"] ?>d">Eliminar</button>
+					<button href="../public/cartRequest:<?= $value["id_cart"] ?>d">Eliminar</button>
 					<button href="#">Modificar</button>
 				</div>
 			</div>
 			
-			<div class="general-container__list-products__product__cp-container"><!-- cp = cantidad y precio -->
-				<div class="general-container__list-products__product__cp-container__amount">
-					
+			<div class="general-container__list-products__product__ap-container"><!-- ap = amount y precio -->
+
+				<div class="general-container__list-products__product__ap-container__amount">
+					<div class="general-container__list-products__product__ap-container__amount__plus">
+						<p>+</p>
+					</div>
+					<div class="general-container__list-products__product__ap-container__amount__number">
+						<p><?= $value["amount"] ?></p>
+					</div>
+					<div class="general-container__list-products__product__ap-container__amount__minus">
+						<p>-</p>
+					</div>
 				</div>
 
-				<div class="general-container__list-products__product__cp-container__price">
-					
+				<div class="general-container__list-products__product__ap-container__price">
+					<p>$ <?= $value["price"] ?></p>
 				</div>
+
 			</div>
-			
 
 		</div>
 
