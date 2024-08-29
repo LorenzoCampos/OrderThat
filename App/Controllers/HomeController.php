@@ -131,4 +131,9 @@ class HomeController extends Controller
 
         // exit;
     }
+
+    public function cart()
+    {
+        return $this->view('cart');
+    }
 }
