@@ -24,62 +24,7 @@ include "partials/nav.php";
 
 <body>
 
-<main class="main-cart">
-
-	<div class="title-container">
-		<h1 class="title-container__text">Carrito</h1>
-	</div>
-
-	<div class="ganeral-container">
-
-		<div class="general-container__list-products">
-
-        <?php
-        foreach ($request["products"] as $key => $value) {
-        ?>
-
-            <div class="general-container__list-products__product">
-
-                <div class="general-container__list-products__product__image-container">
-                    <img src="<?= $value["image_path"] ?>" alt="imagen del producto" class="general-container__list-products__product__image-container__image">
-                </div>
-
-                <div class="general-container__list-products__product__info-container"> <!-- Nombre del producto y los botones eliminar y modificar -->
-                    <div class="general-container__list-products__product__info-container__title">
-                        <p><?= $value["name"] ?></p>
-                    </div>
-
-                    <div class="general-container__list-products__product__info-container__buttons">
-                        <button href="../public/cartRequest:<?= $value["id"] ?>d">Eliminar</button>
-                        <button href="#">Modificar</button>
-                    </div>
-                </div>
-                
-                <div class="general-container__list-products__product__cp-container"><!-- cp = cantidad y precio -->
-					<div class="general-container__list-products__product__cp-container__amount">
-                        
-                    </div>
-
-                    <div class="general-container__list-products__product__cp-container__price">
-                        
-                    </div>
-                </div>
-                
-
-            </div>
-
-        <?php 
-        }
-        ?>
-        </div>
-
-		<div class="general-container__resumen">
-            
-        </div>
-
-	</div>
-
-</main>
+	
 
 </body>
 
