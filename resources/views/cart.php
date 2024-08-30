@@ -83,7 +83,9 @@ include "partials/nav.php";
 	</div>
 
 	<div class="general-container__resumen">
-		
+
+	<div></div>
+
 	</div>
 
 </div>
