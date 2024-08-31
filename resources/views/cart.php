@@ -59,13 +59,13 @@ include "partials/nav.php";
 
 				<div class="general-container__list-products__product__ap-container__amount">
 					<div class="general-container__list-products__product__ap-container__amount__plus">
-						<p>+</p>
+						<a href=""><p>+</p></a>
 					</div>
 					<div class="general-container__list-products__product__ap-container__amount__number">
 						<p><?= $value["amount"] ?></p>
 					</div>
 					<div class="general-container__list-products__product__ap-container__amount__minus">
-						<p>-</p>
+					<a href=""><p>-</p></a>
 					</div>
 				</div>
 
@@ -84,7 +84,37 @@ include "partials/nav.php";
 
 	<div class="general-container__resumen">
 
-	<div></div>
+		<div class="general-container__resumen__buy">
+
+			<div class="general-container__resumen__buy__resume">
+				<p>Resumen de la compra</p>
+			</div>
+
+			<div class="general-container__resumen__buy__costs">
+				<div class="general-container__resumen__buy__costs__products">
+					<p></p><!-- Label, pueden ser: Producto, Productos (2), Productos (5) -->
+					<p></p><!-- Monto total de todos los productos del carrito -->
+				</div>
+
+				<div class="general-container__resumen__buy__costs__send">
+					<p></p><!-- label "Envio" -->
+					<p></p><!-- Importe del envio -->
+				</div>
+			</div>
+
+			<div class="general-container__resumen__buy__checkout">
+				<div class="general-container__resumen__buy__checkout__total">
+					<p></p><!-- Label, puede ser: Total, Importe Total, etc. -->
+					<p></p><!-- Importe total sumando todos los productos mas el envio -->
+				</div>
+				<a href=""><button>Finalizar Compra</button></a><!-- Nose como hacer para finalizar la compra, despues lo analizamos -->
+			</div>
+
+		</div>
+
+		<div class="general-container__resumen__continue-shopping">
+			<a href="../public/"><button>Seguir Comprando</button></a>
+		</div>
 
 	</div>
 
