@@ -24,6 +24,8 @@ Route::post('/OrderThat/public/editProductRequest:id', [HomeController::class,'e
 Route::get('/OrderThat/public/cart', [HomeController::class,'cart']);
 Route::post('/OrderThat/public/cartRequest', [HomeController::class,'cartRequest']);
 Route::get('/OrderThat/public/addCart:id', [HomeController::class,'addCart']);
+Route::get('/OrderThat/public/plusAmount:id', [HomeController::class,'plusAmount']);
+Route::get('/OrderThat/public/minusAmount:id', [HomeController::class,'minusAmount']);
 
 
 // Rutas para el detalle del producto
