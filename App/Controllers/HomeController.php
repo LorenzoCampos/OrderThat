@@ -100,46 +100,56 @@ class HomeController extends Controller
 
         $request = $_POST;
 
-        // $oldProduct = $products->find($id);
+        // Obtener el nombre de la imagen
+        $p_archive_name = $_FILES['image']['name'];
+        // Obtener el archivo temporal
+        $p_archive = $_FILES['image']['tmp_name'];
 
-        // // Obtener el nombre de la imagen
-        // $p_archive_name = $_FILES['image']['name'];
-        // // Obtener el archivo temporal
-        // $p_archive = $_FILES['image']['tmp_name'];
-
-		// // este es el path donde guarda la imagen
-		// $image_path = "../resources/static/img/$p_archive_name";
+		// este es el path donde guarda la imagen
+		$image_path = "../resources/static/img/$p_archive_name";
         
-		// // este es el path donde la base de datos va a buscar la imagen
-		// $image_path_db = "../resources/static/img/$p_archive_name";
+		// este es el path donde la base de datos va a buscar la imagen
+		$image_path_db = "../resources/static/img/$p_archive_name";
 
-        // if ($image_path_db != $oldProduct['image_path']) {
-        //     // Muevo la imagen recuperada para guardarla en el servidor
-        //     $request['image_path'] = $image_path_db;
+        if ($image_path_db == "../resources/static/img/")
+        {
+            unset($request['image_path']);
+        }
+        else
+        {
+            // Muevo la imagen recuperada para guardarla en el servidor
+            $request['image_path'] = $image_path_db;
 
-        //     // Muevo la imagen recuperada para guardarla en el servidor
-        //     move_uploaded_file($p_archive, $image_path);
-        // } else {
-        //     unset($request['image_path']);
-        // }
-        
+            // Muevo la imagen recuperada para guardarla en el servidor
+            move_uploaded_file($p_archive, $image_path);
+        }
 
-        // // Llamar al model para editar registro
-        // $products->update("$id", $request);
+        // Llamar al model para editar registro
+        $products->update("$id", $request);
 
-        // // 
-        // header("Location: ../public");
+        // 
+        header("Location: ../public");
 
-        // exit;
+        exit;
     }
+
+    // Controladores para las funciones del CARRITO
 
     public function addCart($id)
     {
-        $product = new Product();
-        
         $cart = new Cart();
         
-        $id_user = $_SESSION['id_user'];
+        if (isset($_SESSION['id_user']))
+        {
+            $id_user = $_SESSION['id_user'];
+        }
+        else
+        {
+            header("Location: ../public/login");
+
+            exit;
+        }
+        
 
         $find_product = $cart->where("fk_product", "$id")->where("fk_user", "$id_user")->get();
 
@@ -202,5 +212,35 @@ class HomeController extends Controller
         }
 
         return $this->view('cart', compact('request'));
+    }
+
+    public function plusAmount($id)
+    {
+        $cart = new Cart();
+
+        $old_cart_product = $cart->find($id);
+
+        $cart->update($id, [
+            'amount' =>$old_cart_product['amount'] + 1
+        ]);
+
+        header("Location: ../public/cart");
+
+        exit;
+    }
+
+    public function minusAmount($id)
+    {
+        $cart = new Cart();
+
+        $old_cart_product = $cart->find($id);
+
+        $cart->update($id, [
+            'amount' =>$old_cart_product['amount'] - 1
+        ]);
+
+        header("Location: ../public/cart");
+
+        exit;
     }
 }
