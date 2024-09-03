@@ -59,24 +59,24 @@ include "partials/nav.php";
 
 								<div class="general-container__list-products__product__ap-container__amount">
 									<div class="general-container__list-products__product__ap-container__amount__minus">
-										<a href="">
+										<a id="minus" href="../public/minusAmount<?= $value["id_cart"] ?>">
 											<p>-</p>
 										</a>
 									</div>
 									<div class="general-container__list-products__product__ap-container__amount__number">
-										<p> <?= $value["amount"] ?></p>
+										<p id="amount"><?= $value["amount"] ?></p>
 									</div>
 									<div class="general-container__list-products__product__ap-container__amount__plus">
-										<a href="">
+										<a href="../public/plusAmount<?= $value["id_cart"] ?>">
 											<p>+</p>
 										</a>
 									</div>
 								</div>
 
 								<div class="general-container__list-products__product__ap-container__price">
-									<p>$ <?= $value["price"] ?></p>
+								<p id="price">$ </p>
 								</div>
-
+								<p hidden id="price-static"><?= $value["price"] ?></p>
 							</div>
 
 						</div>
@@ -129,5 +129,7 @@ include "partials/nav.php";
 	</main>
 
 </body>
+
+<script src="../resources/static/js/cart.js"></script>
 
 </html>
