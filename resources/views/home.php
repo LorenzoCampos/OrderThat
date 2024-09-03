@@ -14,6 +14,7 @@ include "partials/initSession.php";
 	<link rel="icon" href="../resources/static/img/Logo/rub-white.png">
 	<link rel="stylesheet" href="../resources/static/css/main.css">
 	<link rel="stylesheet" href="../resources/static/css/home.css">
+	<script src="confirmAgProduct.js"></script>
 </head>
 
 <?php
