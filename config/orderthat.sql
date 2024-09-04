@@ -19,7 +19,7 @@ CREATE TABLE addresses (
     floor INT,
     street1 VARCHAR(255),
     street2 VARCHAR(255),
-    description TEXT,
+    indications TEXT,
     FOREIGN KEY (fk_user) REFERENCES users(id)
 );
 
