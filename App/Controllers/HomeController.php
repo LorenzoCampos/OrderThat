@@ -199,6 +199,8 @@ class HomeController extends Controller
 
             $product_foreach = $product->find($id_product);
 
+            $product_foreach['price'] = $product_foreach['price'] * $value['amount'];
+
             $array_form = [
                 'id_product' => $product_foreach['id'],
                 'id_cart' => $value['id'],
@@ -235,9 +237,12 @@ class HomeController extends Controller
 
         $old_cart_product = $cart->find($id);
 
-        $cart->update($id, [
-            'amount' =>$old_cart_product['amount'] - 1
-        ]);
+        if ($old_cart_product['amount'] > 1)
+        {
+            $cart->update($id, [
+                'amount' =>$old_cart_product['amount'] - 1 
+            ]);
+        }
 
         header("Location: ../public/cart");
 
