@@ -1,19 +1,44 @@
 
 
-let priceStatic = parseInt(document.getElementById(`price-static`).textContent);
+// var priceStatic = parseInt(document.getElementById(`price-static`).textContent);
 
-let amount = parseInt(document.getElementById(`amount`).textContent);
+// var amount = parseInt(document.getElementById(`amount`).textContent);
+
+// console.log(amount);
+
+// if (amount <= 1) {
+
+//     document.getElementById(`minus`).removeAttribute(`href`);
+
+//     document.getElementById(`price`).innerHTML += priceStatic;
+
+// } else if (amount > 1) {
+
+//     document.getElementById(`price`).innerHTML += priceStatic * amount;
+
+// }
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------
+
+var amount = document.querySelectorAll(`.amount`);
 
 console.log(amount);
 
-if (amount <= 1) {
+var priceAllProducts = document.querySelectorAll(`.price`);
 
-    document.getElementById(`minus`).removeAttribute(`href`);
+console.log(priceAllProducts);
 
-    document.getElementById(`price`).innerHTML += priceStatic;
+var priceAll = 0;
 
-} else if (amount > 1) {
+priceAllProducts.forEach(element => {
+    priceIncompleto = parseInt(element.firstChild.data);
+    priceAll += priceIncompleto;
+});
 
-    document.getElementById(`price`).innerHTML += priceStatic * amount;
-
+if (priceAllProducts.length == 1) {
+    document.getElementById(`products`).innerHTML = `Producto`;
+} else {
+    document.getElementById(`products`).innerHTML = `Productos (${priceAllProducts.length})`;
 }
+
+document.getElementById(`total-p`).innerHTML = `$ ${priceAll}`;
