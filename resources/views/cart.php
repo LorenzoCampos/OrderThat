@@ -45,26 +45,33 @@ include "partials/nav.php";
 							<img src="<?= $value["image_path"] ?>" alt="imagen del producto">
 						</div>
 
-						<div class="general-container__list-products__product__info-container"> <!-- Nombre del producto y los botones eliminar y modificar -->
-							<div class="general-container__list-products__product__info-container__text">
-								<p><?= $value["name"] ?></p>
-							</div>
+						<div class="general-container__list-products__product__info-container">
+							
+							<div class="general-container__list-products__product__info-container__items"> <!-- Nombre del producto y los botones eliminar y modificar -->
 
-							<div class="general-container__list-products__product__info-container__buttons">
-								<button href="../public/cartRequest:<?= $value["id_cart"] ?>d">Eliminar</button>
-								<button href="#">Modificar</button>
-							</div>
+								<div class="general-container__list-products__product__info-container__items__text">
+									<p><?= $value["name"] ?></p>
+								</div>
 
+								<div class="general-container__list-products__product__info-container__items__buttons">
+									<button href="../public/cartRequest:<?= $value["id_cart"] ?>d">Eliminar</button>
+									<button href="#">Modificar</button>
+								</div>
+
+							</div>
+							
 							<div class="general-container__list-products__product__ap-container"><!-- ap = amount y precio -->
+
+								
 
 								<div class="general-container__list-products__product__ap-container__amount">
 									<div class="general-container__list-products__product__ap-container__amount__minus">
-										<a id="minus" href="../public/minusAmount<?= $value["id_cart"] ?>">
+										<a class="minus" href="../public/minusAmount<?= $value["id_cart"] ?>">
 											<p>-</p>
 										</a>
 									</div>
 									<div class="general-container__list-products__product__ap-container__amount__number">
-										<p id="amount"><?= $value["amount"] ?></p>
+										<p class="amount"><?= $value["amount"] ?></p>
 									</div>
 									<div class="general-container__list-products__product__ap-container__amount__plus">
 										<a href="../public/plusAmount<?= $value["id_cart"] ?>">
@@ -74,9 +81,8 @@ include "partials/nav.php";
 								</div>
 
 								<div class="general-container__list-products__product__ap-container__price">
-								<p id="price">$ </p>
+								<p>$ <span class="price"><?= $value["price"] ?></span></p>
 								</div>
-								<p hidden id="price-static"><?= $value["price"] ?></p>
 							</div>
 
 						</div>
@@ -95,25 +101,25 @@ include "partials/nav.php";
 			<div class="general-container__resumen__buy">
 
 				<div class="general-container__resumen__buy__resume">
-					<p>Resumen de la compra</p>
+					<p>Resumen de compra</p>
 				</div>
 
 				<div class="general-container__resumen__buy__costs">
 					<div class="general-container__resumen__buy__costs__products">
-						<p></p><!-- Label, pueden ser: Producto, Productos (2), Productos (5) -->
-						<p></p><!-- Monto total de todos los productos del carrito -->
+						<p id="products"></p><!-- Label, pueden ser: Producto, Productos (2), Productos (5) -->
+						<p id="total-p"></p><!-- Monto total de todos los productos del carrito -->
 					</div>
 
 					<div class="general-container__resumen__buy__costs__send">
-						<p></p><!-- label "Envio" -->
-						<p></p><!-- Importe del envio -->
+						<p>Envío: </p><!-- label "Envio" -->
+						<p>$ 600</p><!-- Importe del envio -->
 					</div>
 				</div>
 
 				<div class="general-container__resumen__buy__checkout">
 					<div class="general-container__resumen__buy__checkout__total">
-						<p></p><!-- Label, puede ser: Total, Importe Total, etc. -->
-						<p></p><!-- Importe total sumando todos los productos mas el envio -->
+						<p>Total</p><!-- Label, puede ser: Total, Importe Total, etc. -->
+						<p>$ <span id="total"></span></p><!-- Importe total sumando todos los productos mas el envio -->
 					</div>
 					<a href=""><button>Finalizar Compra</button></a><!-- Nose como hacer para finalizar la compra, despues lo analizamos -->
 				</div>
@@ -121,7 +127,7 @@ include "partials/nav.php";
 			</div>
 
 			<div class="general-container__resumen__continue-shopping">
-				<a href="../public/"><button>Seguir Comprando</button></a>
+				<a href="../public/"><button>Continuar Comprando</button></a>
 			</div>
 
 		</div>
