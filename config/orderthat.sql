@@ -1,3 +1,7 @@
+DROP IS EXISTS orderthat;
+CREATE DATABASE orderthat;
+USE orderthat;
+
 -- Tabla de usuarios
 CREATE TABLE users (
     id INT PRIMARY KEY AUTO_INCREMENT,
