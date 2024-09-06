@@ -46,9 +46,7 @@ include "partials/nav.php";
 
 						</div>
 					</a>
-					
-					<div class='product__description-container'>
-						<div class='product__description'>
+						<div class="product__description-container">
 
 							<span class="product__description-name"><b><?= $value['name'] ?></b></span>
 
@@ -77,7 +75,6 @@ include "partials/nav.php";
 							?>
 						</div>
 					</div>
-				</div>
 			</div>
 
 		<?php
