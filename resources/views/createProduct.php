@@ -48,7 +48,7 @@ include "partials/nav.php";
 
         <div class="general-container__form-add__item-form">
             <label for="name">Nombre del Producto</label>
-            <input type="text" name="name" id="name" required>
+            <input type="text" name="name" id="name" maxlength="50" required>
         </div>
 
         <div class="general-container__form-add__pl">
@@ -67,7 +67,7 @@ include "partials/nav.php";
 
         <div class="general-container__form-add__item-form">
             <label for="description">Descripcion</label>
-            <input type="text" name="description" id="description" required>
+            <input type="text" name="description" id="description" maxlength="100" required>
         </div>
 
         <div class="general-container__form-add__item-form">
@@ -101,11 +101,13 @@ include "partials/nav.php";
 
                         <span><b id="view-name">NOMBRE</b></span>
 
+                        <span class="product__description-description" id="view-description"></span>
+
                         <span><b>Precio: $<b id="view-price">PRECIO</b></b></span>
 
                         <a class="link">
                             <div class='product-description-btn'>
-                                <span>Modificar</span>
+                                <span>Agregar</span>
                             </div>
                         </a>
 
