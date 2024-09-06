@@ -21,9 +21,11 @@ file.addEventListener( 'change', e => {
 
 let inputName = document.querySelector('#name');
 let inputPrice = document.querySelector('#price');
+let inputDescription = document.querySelector('#description');
 
 let previewName = document.getElementById('view-name');
 let previewPrice = document.getElementById('view-price');
+let previewDescription = document.getElementById('view-description');
 
 inputName.addEventListener('keyup',()=>{
   previewName.innerHTML = inputName.value;
@@ -31,4 +33,8 @@ inputName.addEventListener('keyup',()=>{
 
 inputPrice.addEventListener('keyup',()=>{
   previewPrice.innerHTML = inputPrice.value;
+});
+
+inputDescription.addEventListener('keyup',()=>{
+  previewDescription.innerHTML = inputDescription.value;
 });
