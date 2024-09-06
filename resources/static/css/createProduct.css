@@ -161,20 +161,21 @@
 }
 
 .product {
-	width: 18em;
-	max-height: 100%;
+	padding: .5em;
 	background-color: var(--color-400);
-	border-radius: .4em;
+	border-radius: .2em;
+
+	max-width: 200px;
 }
 
-.product-item-container {
+.product__item-container {
 	width: 100%;
 	max-height: 100%;
 	border: .15em;
 	border-radius: .3em;
 }
 
-.img-container {
+.product__item-container__img {
 	height: 18em;
 	width: 100%;
 	display: flex;
@@ -195,6 +196,10 @@
 
 .product-description-container {
 	padding: .75em;
+}
+
+.product__description-description{
+	color: var(--color-200);
 }
 
 .product-description {
