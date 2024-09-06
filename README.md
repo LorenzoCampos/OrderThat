@@ -3,27 +3,29 @@ IMPORTANTE!
 TO DO LIST:
 
 - HOME RESPONSIVE (USUARIO)
-  - CARTA (Terminado)
-  - NAV (Por hacer)
-  - PROBAR EN HACER UN MENU DESPLEGABLE
+  - CARTA (realizado)
+  - NAV (realizado)
+  - PROBAR EN HACER UN MENU DESPLEGABLE (realizado)
 
 -------------------------------------------------------------
 
 - VIEW Y BACKEND DE MI-CUENTA (USUARIO)
   - DATOS PERSONALES (realizado)
   - DIRECCIONES (realizado)
-  - HISTORIAL DE PEDIDOS
+  - HISTORIAL DE PEDIDOS <-----
 
 -------------------------------------------------------------
 
 - VIEW Y BACKEND DEL PRODUCTO (DESCRIPCION)
-  - EDIT (funcional)
-  - CREATE (funcional)
+  - EDIT (realizado)
+  - CREATE (realizado)
   - DELETE
   - SEARCH DETAIL PRODUCT
 
 -------------------------------------------------------------
 - VIEW Y BACKEND CARRITO DE COMPRA (DISEÑO A DEBATIR)
+  - BACKEND (realizado)
+  - VIEW (en proceso)
 
 
 ------------------------------------------------------------
